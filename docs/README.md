@@ -13,10 +13,11 @@ Spadebook is a 1:1 clone of Facebook. The MVP will feature user profiles, a news
 
 
 ## Wireframes
-[Create account](#)
-[Log in](#)
-[News feed](#)
-[User profile](#)
+[Log in / sign up](wireframes/login-signup.png)
+[Header](wireframes/header.png)
+[New Post](wireframes/new-post.png)
+[News Feed](wireframes/news-feed.png)
+[Profile View](wireframes/profile-view.png)
 
 ## Project Timeline
 day | progress
