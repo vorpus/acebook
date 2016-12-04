@@ -1,0 +1,44 @@
+footer {
+  border-top: 1px solid #dddfe2;
+  padding-top: 5px;
+  font-size: 12px;
+}
+
+.footer-container {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.languages {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.languages li {
+  float: left;
+  padding-right: 9px;
+}
+
+footer a {
+  color: #365899;
+}
+
+.bottom-navs {
+  border-top: 1px solid #dddfe2;
+  padding-top: 15px;
+}
+
+.bottom-navs a {
+  text-decoration: none;
+}
+.bottom-navs li {
+  float: left;
+  width: 85px;
+  margin-bottom: 8px;
+}
+
+.copyright {
+  margin-top: 15px;
+  font-size: 11px;
+  color: #737373;
+}
