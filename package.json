@@ -1,0 +1,36 @@
+{
+  "name": "spadebook",
+  "version": "1.0.0",
+  "description": "Spadebook is a clone of Facebook built using Ruby, Rails, React, Redux, and a lot of CSS magic. The purpose of this project is to solidify what we learned over the past several months at App Academy NYC. The clone features fake profiles from professional poker players.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vorpus/spadebook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vorpus/spadebook/issues"
+  },
+  "homepage": "https://github.com/vorpus/spadebook#readme",
+  "dependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0",
+    "webpack": "^1.13.3"
+  }
+}

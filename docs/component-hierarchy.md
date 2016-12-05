@@ -6,12 +6,19 @@
 **SignupContainer**
  - SignupForm
 
-**HeaderContainer**
+ **Home**
+ - AuthFormContainer
+ - SignupFormContainer
+
+**SearchContainer**
  - Search
+
+**HeaderContainer**
+ - SearchContainer
 
 **NewPostContainer**
  - NewPostForm
-  + NewTag
+  + NewTag d
 
 **NewsFeedContainer**
  - Header

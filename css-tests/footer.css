@@ -31,6 +31,11 @@ footer a {
 .bottom-navs a {
   text-decoration: none;
 }
+
+.bottom-navs a:hover {
+  text-decoration: underline;
+}
+
 .bottom-navs li {
   float: left;
   width: 85px;
