@@ -9,11 +9,16 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/.bin/webpack",
     "webpack": "webpack -w"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vorpus/spadebook.git"
+  },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.14.x"
   },
   "keywords": [],
   "author": "",
