@@ -1,0 +1,11 @@
+.main-header {
+  background: #3b5998;
+  border-bottom: 1px solid #29487d;
+}
+
+.main-header-container {
+  width: 1012px;
+  height: 42px;
+  background: lightblue;
+  margin: 0 auto;
+}

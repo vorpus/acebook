@@ -8,7 +8,7 @@ const Greeting = (props) => {
       return (
         <div>
           Welcome {props.currentUser.username}
-          <input type="button" value="sign out" onClick={props.logout}/>
+          <input type="button" value="sign out" onClick={log_out}/>
         </div>
       );
     } else {
@@ -19,6 +19,11 @@ const Greeting = (props) => {
       );
     }
   };
+
+  const log_out = () => {
+    props.logout()
+    props.router.push('/login')
+  }
   // debugger
 
   return(

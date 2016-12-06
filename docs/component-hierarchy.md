@@ -18,7 +18,7 @@
 
 **NewPostContainer**
  - NewPostForm
-  + NewTag d
+  + NewTag
 
 **NewsFeedContainer**
  - Header
