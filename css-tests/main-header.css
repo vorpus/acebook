@@ -9,3 +9,14 @@
   background: lightblue;
   margin: 0 auto;
 }
+
+.header-logo {
+  width: 25px;
+  height: 25px;
+  background: white;
+  text-align: right;
+  vertical-align: bottom;
+
+  font-size: 24px;
+  color: #3b5998;
+}
