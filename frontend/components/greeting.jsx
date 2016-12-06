@@ -14,7 +14,7 @@ const Greeting = (props) => {
     } else {
       return (
         <div>
-          Please <Link to='/signup'>sign up</Link> or <Link to='/login'>log in</Link>
+          Please <Link to='/login'>log in</Link>
         </div>
       );
     }

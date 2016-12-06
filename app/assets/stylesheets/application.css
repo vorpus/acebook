@@ -12,4 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require_reset
+ *= require_header
+ *= require_signup
+ *= require_footer
  */

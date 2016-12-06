@@ -10,9 +10,9 @@ class SignupForm extends React.Component {
       email: '',
       secondemail: '',
       password: '',
-      birthmonth: "0",
-      birthdate: "0",
-      birthyear: "0",
+      birthmonth: "-1",
+      birthdate: "-1",
+      birthyear: "-1",
       birthday: '',
       gender: '',
       errors: ''
@@ -29,8 +29,9 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger
 
-    if (this.state.birthyear === "0" || this.state.birthmonth === "0" || this.state.birthdate === "0") {
+    if (this.state.birthyear === "-1" || this.state.birthmonth === "-1" || this.state.birthdate === "-1") {
       this.props.errors.push("Invalid birthday!");
       this.forceUpdate();
       return null;
@@ -47,6 +48,7 @@ class SignupForm extends React.Component {
                                 {birthday: new Date(this.state.birthyear,
                                                     this.state.birthmonth,
                                                     this.state.birthdate)});
+
     console.log(user);
     this.props.processForm(user).then(() => this.redirect(), () => console.log('errors'));
   }
@@ -114,6 +116,7 @@ class SignupForm extends React.Component {
               className="namehalf"
               placeholder="First name"
           />
+          &nbsp;
           <input type="text" name="lastname"
               value={this.state.lastname}
               onChange={this.handleInput}
@@ -142,15 +145,15 @@ class SignupForm extends React.Component {
           <h3>Birthday</h3>
           <div className="birthday group">
             <select name="birthmonth" onChange={this.handleInput}>
-              <option value="0">Month</option>
+              <option value="-1">Month</option>
               {monthPicker}
             </select>
             <select name="birthdate" onChange={this.handleInput}>
-              <option value="0">Day</option>
+              <option value="-1">Day</option>
               {dayPicker}
             </select>
             <select name="birthyear" onChange={this.handleInput}>
-              <option value="0">Year</option>
+              <option value="-1">Year</option>
               {yearPicker}
             </select>
             <aside>
@@ -160,9 +163,9 @@ class SignupForm extends React.Component {
 
           <div name="gender" className="genderselect group" onChange={this.setGender}>
             <label>
-            <input type="radio" name="gender" value="female"/>Female</label>
+            <input type="radio" name="gender" value="female"/> Female</label>
             <label>
-            <input type="radio" name="gender" value="male"/>Male</label>
+            <input type="radio" name="gender" value="male"/> Male</label>
           </div>
 
           <div className="confirm">
