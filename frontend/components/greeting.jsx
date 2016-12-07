@@ -8,13 +8,7 @@ const Greeting = (props) => {
       return (
         <div>
           Welcome {props.currentUser.username}
-          <input type="button" value="sign out" onClick={log_out}/>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          Please <Link to='/login'>log in</Link>
+          <input type="button" value="Log Out" onClick={log_out}/>
         </div>
       );
     }

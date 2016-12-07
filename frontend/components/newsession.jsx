@@ -38,7 +38,7 @@ const NewSession = ({loggedIn, errors, processLogin, processSignup, router}) => 
 
       </section>
 
-      <footer>
+      <footer className="session-footer">
         <section className="footer-container">
         <nav>
           <ul className="languages group">

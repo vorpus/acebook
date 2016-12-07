@@ -1,3 +1,5 @@
+//USER FUNCS
+
 export function createUser (user) {
   return $.ajax({
     method: 'POST',
@@ -5,6 +7,8 @@ export function createUser (user) {
     data: { user: user }
   });
 }
+
+//SESSION FUNCS
 
 export function loginUser (user) {
   return $.ajax({
@@ -19,6 +23,23 @@ export function logoutUser () {
     method: 'DELETE',
     url: '/api/session'
   });
+}
+
+//POST FUNCS
+
+export function getPosts () {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/posts'
+  })
+}
+
+export function createPost (post) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/posts',
+    data: { post: post }
+  })
 }
 
 
