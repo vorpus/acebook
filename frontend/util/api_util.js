@@ -31,7 +31,7 @@ export function getPosts () {
   return $.ajax({
     method: 'GET',
     url: '/api/posts'
-  })
+  });
 }
 
 export function createPost (post) {
@@ -39,7 +39,7 @@ export function createPost (post) {
     method: 'POST',
     url: '/api/posts',
     data: { post: post }
-  })
+  });
 }
 
 

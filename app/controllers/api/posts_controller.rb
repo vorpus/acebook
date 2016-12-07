@@ -1,7 +1,6 @@
 class Api::PostsController < ApplicationController
   def index
     @posts = Post.order(created_at: :desc).includes(:author)
-    render :index
   end
 
   def create

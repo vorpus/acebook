@@ -14,6 +14,10 @@ button, article, footer, small {
   color: inherit;
   background: transparent;
 }
+
+body {
+  background: #edf0f5;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
