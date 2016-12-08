@@ -62,7 +62,10 @@ body {
   border: 1px solid #29487d;
   padding: 1px;
   margin-top: 17px;
+}
 
+.login-input-group {
+  margin-right: 5px;
 }
 
 .login-input-group button {
@@ -73,6 +76,15 @@ body {
 
   font-size: 12px;
   padding: 3px;
+}
+
+.guestlogin-btn {
+  cursor: pointer;
+  background: #ffae42;
+  padding: 4px 3px;
+  font-size: 12px;
+  margin-top: 17px;
+  border: 1px solid #B2792E;
 }
 
 .invisible {
@@ -91,7 +103,14 @@ body {
 }
 
 @media only screen and (max-width: 980px) {
+  .logo {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 15px;
+  }
+
   .login-container {
     width: 600px;
+
   }
 }

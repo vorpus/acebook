@@ -10,11 +10,22 @@ class NewPost extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.resetPostForm = this.resetPostForm.bind(this);
+  }
+
+  resetPostForm() {
+    this.setState({
+      email: this.props.currentUser.email,
+      body: ''
+    })
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state);
+    this.props.createPost(this.state).then(()=>{
+      this.resetPostForm();
+    })
+
   }
 
   handleInput(e) {
@@ -44,7 +55,7 @@ class NewPost extends React.Component {
             </div>
             <textarea name="body" rows="2" cols="80"
               onChange={this.handleInput}
-              placeholder="What's on your mind?"></textarea>
+              placeholder="What's on your mind?" value={this.state.body}/>
           </div>
           <div className="new-post-bottom group">
             <div className="new-post-adds group">

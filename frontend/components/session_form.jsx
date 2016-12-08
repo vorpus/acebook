@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   redirect() {
@@ -32,6 +33,15 @@ class SessionForm extends React.Component {
     this.setState({
       [name]: e.currentTarget.value
     });
+  }
+
+  guestLogin() {
+    console.log('guest!')
+    const user = {email: 'test4', password: '123qwe'};
+    this.props.processForm(user).then(
+          () => this.redirect(),
+          () => console.log('errors')
+    );
   }
 
   render() {
@@ -67,6 +77,12 @@ class SessionForm extends React.Component {
         <div className="login-input-group submit">
           <div className="submitbtn">
             <button type="submit" name="submit">Log in</button>
+          </div>
+        </div>
+
+        <div className="login-input-group">
+          <div className="guestlogin-btn" onClick={this.guestLogin}>
+            Guest Acct
           </div>
         </div>
       </form>
