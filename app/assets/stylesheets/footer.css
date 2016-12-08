@@ -50,3 +50,10 @@ footer a {
   font-size: 11px;
   color: #737373;
 }
+
+@media only screen and (max-width: 980px) {
+
+  .footer-container {
+    width: 100%;
+  }
+}

@@ -128,3 +128,28 @@
   float: left;
   color: #18243d;
 }
+
+
+@media only screen and (max-width: 1012px) {
+  .main-header-container {
+    width: 700px;
+  }
+
+  .header-searchbar input {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .main-header-container {
+    width: 100%;
+  }
+
+  .header-searchbar input {
+    display: none;
+  }
+
+  .header-searchbar button {
+    display: none;
+  }
+}

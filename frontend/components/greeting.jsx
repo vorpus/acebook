@@ -7,19 +7,9 @@ class Greeting extends React.Component {
     super();
 
     this.log_out = this.log_out.bind(this);
-    this.ensureLoggedIn = this.ensureLoggedIn.bind(this);
     this.yourname = this.yourname.bind(this);
   }
 
-  componentWillReceiveProps() {
-    this.ensureLoggedIn();
-  }
-
-  ensureLoggedIn() {
-    if (!this.props.currentUser.id) {
-      this.props.router.push('/login');
-    }
-  }
 
   log_out() {
     this.props.logout().then(() => this.props.router.push('/login'));

@@ -144,3 +144,27 @@
   padding: 5px;
   margin-top: 5px;
 }
+
+@media only screen and (max-width: 1012px) {
+  .main-body-right{
+    display: none;
+  }
+
+  .main-body {
+    width: 700px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .main-body-left{
+    display: none;
+  }
+
+  .main-body-content {
+    width: 100%;
+    margin-left: 0;
+  }
+  .body-content-col {
+    width: 100%;
+  }
+}

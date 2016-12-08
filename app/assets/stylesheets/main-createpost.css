@@ -72,3 +72,21 @@
   margin-top: 10px;
   margin-right: 20px;
 }
+
+@media only screen and (max-width: 1012px) {
+
+}
+
+@media only screen and (max-width: 700px) {
+  .new-post-thumb {
+    display: none;
+  }
+
+  .new-post-form textarea {
+    width: 400px;
+  }
+
+  .new-post-form button {
+    float: left;
+  }
+}
