@@ -1,0 +1,19 @@
+.profile-left {
+  float: left;
+  width: 330px;
+  margin-top: 15px;
+}
+
+.profile-body-content {
+  margin-top: 15px;
+  float: right;
+  margin-right: 1px;
+  width: 500px;
+  height: 100%;
+}
+
+.profile-left-content {
+  background: white;
+  box-shadow: 1px 1px #DFE0E4;
+  margin-bottom: 15px;
+}

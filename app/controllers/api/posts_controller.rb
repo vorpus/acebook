@@ -1,6 +1,10 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.order(created_at: :desc).includes(:author)
+    if params.has_key?(:user_id)
+      @posts = Post.where(author_id: params[:user_id])
+    else
+      @posts = Post.order(created_at: :desc).includes(:author)
+    end
   end
 
   def create

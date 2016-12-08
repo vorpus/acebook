@@ -1,5 +1,6 @@
 import React from 'react';
 import NewPostContainer from './new_post_container';
+import { Link } from 'react-router';
 import TimeAgo from 'react-timeago';
 
 class PostIndex extends React.Component {
@@ -8,7 +9,14 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts(this.props.profileId);
+  }
+
+  componentWillUpdate(nextProps) {
+    if (this.props.profileId !== nextProps.profileId) {
+
+      this.props.fetchPosts(nextProps.profileId);
+    }
   }
 
   render() {
@@ -22,7 +30,7 @@ class PostIndex extends React.Component {
                 <img src="http://placecorgi.com/40/40" alt="" />
               </div>
               <div className="post-content-name group">
-                {posts[postId].email}
+                <Link to={`/profile/${posts[postId].id}`}>{posts[postId].email}</Link>
                 <br/>
                 <div className="post-content-timestamp">
                   <TimeAgo date={posts[postId].created_at} minPeriod="60" />
@@ -51,7 +59,7 @@ class PostIndex extends React.Component {
     })
 
     return(
-      <div className="main-body-content">
+      <div>
         <NewPostContainer />
         {postItems}
       </div>

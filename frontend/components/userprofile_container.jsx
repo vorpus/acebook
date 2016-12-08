@@ -1,7 +1,6 @@
-import { connect } from 'react-redux'
-import PostIndex from './post_index';
-import { fetchPosts, createPost, receivePost, receivePosts } from '../actions/post_actions';
+import { connect } from 'react-redux';
 
+import UserProfile from './userprofile';
 
 const mapStateToProps = (state) => {
   return {
@@ -13,7 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchPosts: (data) => dispatch(fetchPosts(data)),
+    fetchPosts: () => dispatch(fetchPosts()),
     createPost: (post) => dispatch(createPost(post))
   }
 }
@@ -21,4 +20,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostIndex);
+)(UserProfile);

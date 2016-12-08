@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
 import NewSession from './newsession_container';
+import UserProfile from './userprofile_container';
 
 class Root extends React.Component {
   constructor(props) {
@@ -21,9 +22,8 @@ class Root extends React.Component {
       <Provider store={ this.props.store }>
         <Router history={ hashHistory }>
           <Route path="/login" component={NewSession}/>
-          <Route path="/" component={ App } onEnter={this._redirectIfLoggedIn}>
-
-          </Route>
+          <Route path="/" component={ App } onEnter={this._redirectIfLoggedIn} />
+          <Route path="profile/:id" component={UserProfile} onEnter={this._redirectIfLoggedIn} />
         </Router>
       </Provider>
     )

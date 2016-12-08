@@ -8,6 +8,13 @@ export function createUser (user) {
   });
 }
 
+export function getUser (userId) {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${userId}`
+  })
+}
+
 //SESSION FUNCS
 
 export function loginUser (user) {
@@ -27,11 +34,18 @@ export function logoutUser () {
 
 //POST FUNCS
 
-export function getPosts () {
-  return $.ajax({
-    method: 'GET',
-    url: '/api/posts'
-  });
+export function getPosts (userId) {
+  if (userId) {
+    return $.ajax({
+      method: 'GET',
+      url: `/api/users/${userId}/posts`
+    });
+  } else {
+    return $.ajax({
+      method: 'GET',
+      url: '/api/posts'
+    });
+  }
 }
 
 export function createPost (post) {

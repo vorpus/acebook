@@ -4,9 +4,9 @@ export const RECEIVE_POSTS = "RECEIVE_POSTS";
 
 import * as APIUtil from '../util/api_util';
 
-export const fetchPosts = () => {
+export const fetchPosts = (userId) => {
   return (dispatch) => {
-    return APIUtil.getPosts().then(
+    return APIUtil.getPosts(userId).then(
       (success) => dispatch(receivePosts(success)),
       (err) => dispatch(receiveErrors(err))
     );

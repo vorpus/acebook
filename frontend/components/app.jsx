@@ -41,7 +41,10 @@ const App = ({ children }) => (
         <p className="main-left-p">Ad · Page · Group · Event · Fundraiser</p>
     </div>
 
-    <PostIndexContainer />
+    <div className="main-body-content">
+      <PostIndexContainer />
+    </div>
+    
     <div className="main-body-right-positioner">
       <div className="main-body-right">
         <div className="body-right-col">
