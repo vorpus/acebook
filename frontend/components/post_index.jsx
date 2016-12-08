@@ -1,5 +1,6 @@
 import React from 'react';
 import NewPostContainer from './new_post_container';
+import TimeAgo from 'react-timeago';
 
 class PostIndex extends React.Component {
   constructor() {
@@ -13,7 +14,6 @@ class PostIndex extends React.Component {
   render() {
     const {postKeys, posts} = this.props;
     const postItems = postKeys.map(postId => {
-      debugger
       return (
         <div key={postId} className="body-content-col">
           <div className="post-content-post">
@@ -25,7 +25,7 @@ class PostIndex extends React.Component {
                 {posts[postId].email}
                 <br/>
                 <div className="post-content-timestamp">
-                  1 hour ago
+                  <TimeAgo date={posts[postId].created_at} minPeriod="60" />
                 </div>
               </div>
 

@@ -1,7 +1,7 @@
 footer {
   border-top: 1px solid #dddfe2;
   padding-top: 5px;
-
+  background: white;
 }
 
 .footer-container {
@@ -24,6 +24,13 @@ footer {
 
 footer a {
   color: #365899;
+}
+
+.session-footer {
+  padding-top: 10px;
+  background: white;
+  padding-bottom:50px;
+  overflow: hidden;
 }
 
 .bottom-navs {

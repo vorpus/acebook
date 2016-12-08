@@ -16,7 +16,7 @@ export const fetchPosts = () => {
 export const createPost = (post) => {
   return (dispatch) => {
     return APIUtil.createPost(post).then(
-      (success) => dispatch(receivePost(post)),
+      (success) => dispatch(receivePost(success)),
       (err) => dispatch(receiveErrors(err))
     );
   };
@@ -24,7 +24,7 @@ export const createPost = (post) => {
 
 export const receivePost = (post) => {
   return { type: RECEIVE_POST,
-    post: { body: post.body, email: post.email}
+    post
   };
 }
 

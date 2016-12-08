@@ -44,9 +44,9 @@ body {
   margin-right: 15px;
   margin-top: 1px;
   margin-bottom: 5px;
-  padding-bottom: 5px;
+  padding: 3px 5px 5px 5px;
   border: 1px solid black;
-  width: 142px;
+  width: 135px;
   background: white;
   color: black;
 }
@@ -60,7 +60,7 @@ body {
   background: red;
   background: #4267b2;
   border: 1px solid #29487d;
-  padding: 1px;
+  padding: 2px;
   margin-top: 17px;
 }
 
@@ -81,7 +81,7 @@ body {
 .guestlogin-btn {
   cursor: pointer;
   background: #ffae42;
-  padding: 4px 3px;
+  padding: 5px 3px;
   font-size: 12px;
   margin-top: 17px;
   border: 1px solid #B2792E;

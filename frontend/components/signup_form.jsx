@@ -146,7 +146,7 @@ class SignupForm extends React.Component {
           </div>
 
           <div className="input-container">
-          <input type="text" name="password"
+          <input type="password" name="password"
               value={this.state.password}
               onChange={this.handleInput}
               placeholder="New password"

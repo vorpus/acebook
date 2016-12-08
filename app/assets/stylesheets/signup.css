@@ -216,15 +216,6 @@
   cursor: pointer;
 }
 
-.celeb-place {
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.celeb-place a:hover {
-  text-decoration: underline;
-}
-
 
 @media only screen and (max-width: 980px) {
   .login-description {

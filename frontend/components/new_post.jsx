@@ -4,7 +4,6 @@ class NewPost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: props.currentUser.email,
       body: ''
     };
 
@@ -15,7 +14,6 @@ class NewPost extends React.Component {
 
   resetPostForm() {
     this.setState({
-      email: this.props.currentUser.email,
       body: ''
     })
   }

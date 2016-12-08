@@ -10,7 +10,7 @@ const NewSession = ({loggedIn, errors, processLogin, processSignup, router}) => 
     <div className="loginBody">
       <header className="login-header">
         <div className="login-container">
-          <p className="logo">facebook</p>
+          <p className="logo">acebook</p>
           <SessionForm loggedIn={loggedIn} errors={errors} processForm={processLogin} router={router} />
         </div>
       </header>
@@ -87,7 +87,7 @@ const NewSession = ({loggedIn, errors, processLogin, processSignup, router}) => 
           </ul>
         </nav>
 
-        <div className="copyright">Facebook © 2016</div>
+        <div className="copyright">acebook © 2016</div>
         </section>
       </footer>
     </div>

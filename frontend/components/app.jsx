@@ -5,7 +5,7 @@ import PostIndexContainer from './post_index_container';
 const App = ({ children }) => (
   <div>
   <GreetingContainer />
-  <section className="main-body">
+  <section className="main-body group">
     <div className="main-body-left">
       <ul className="main-left-mainlinks">
         <li><i className="material-icons">group</i> Li Zhang</li>
