@@ -13,7 +13,6 @@ const SessionReducer = (state = defaultUserState, action) => {
         errors: []
       };
     case RECEIVE_ERRORS:
-
       return Object.assign({}, state, {errors: action.errors.responseJSON});
     default:
       return state;

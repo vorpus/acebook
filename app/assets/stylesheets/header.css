@@ -85,6 +85,10 @@ body {
   clear: both;
 }
 
+.login-errors {
+  position: absolute;
+  color: white;
+}
 
 @media only screen and (max-width: 980px) {
   .login-container {

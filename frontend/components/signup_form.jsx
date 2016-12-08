@@ -14,8 +14,7 @@ class SignupForm extends React.Component {
       birthdate: "-1",
       birthyear: "-1",
       birthday: '',
-      gender: '',
-      errors: ''
+      gender: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,25 +28,23 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
 
-    if (this.state.birthyear === "-1" || this.state.birthmonth === "-1" || this.state.birthdate === "-1") {
-      this.props.errors.push("Invalid birthday!");
-      this.forceUpdate();
-      return null;
-    }
 
-    if (this.state.email !== this.state.secondemail) {
-      this.props.errors.push("Emails don't match!");
-      this.forceUpdate();
-      return null;
-    }
 
     const user = Object.assign({},
                                 this.state,
                                 {birthday: new Date(this.state.birthyear,
                                                     this.state.birthmonth,
                                                     this.state.birthdate)});
+
+    if (this.state.birthyear === "-1" || this.state.birthmonth === "-1" || this.state.birthdate === "-1") {
+      user.birthday = null;
+      // return null;
+    }
+
+    if (this.state.email !== this.state.secondemail) {
+      user.email = null;
+    }
 
     console.log(user);
     this.props.processForm(user).then(() => this.redirect(), () => console.log('errors'));
@@ -68,11 +65,13 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const errors = this.props.errors.map((err, idx) => {
-        return (
-          <li key={idx}>{err}</li>
-        );
-    });
+    const errorWarning = <i className="material-icons">warning</i>
+    const firstnameErr = this.props.errors["firstname"] ? errorWarning : "";
+    const lastnameErr = this.props.errors["lastname"] ? errorWarning : "";
+    const genderErr = this.props.errors["gender"] ? errorWarning : "";
+    const emailErr = this.props.errors["email"] ? errorWarning : "";
+    const passwordErr = this.props.errors["password"] ? errorWarning : "";
+    const birthdayErr = this.props.errors["birthday"] ? errorWarning : "";
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const monthPicker = months.map((mon, idx) => {
@@ -106,44 +105,61 @@ class SignupForm extends React.Component {
         <h1>Sign Up</h1>
         <h3>It's free and always will be.</h3>
         <form className="signup-form" onSubmit={this.handleSubmit}>
-        <ul className="error-messages">
-          {errors}
-        </ul>
 
-          <input type="text" name="firstname"
-              value={this.state.firstname}
-              onChange={this.handleInput}
-              className="namehalf"
-              placeholder="First name"
-          />
-          &nbsp;
+        <div className="text-inputs group">
+          <div className="input-container">
+            <input type="text" name="firstname"
+                value={this.state.firstname}
+                onChange={this.handleInput}
+                className="namehalf"
+                placeholder="First name"
+            />
+            <div className="error-popup first-name-errors">{firstnameErr}</div>
+          </div>
+
+          <div className="input-container lastname-container">
           <input type="text" name="lastname"
               value={this.state.lastname}
               onChange={this.handleInput}
               className="namehalf"
               placeholder="Last name"
           />
+          <div className="error-popup first-name-errors">{lastnameErr}</div>
+          </div>
 
+          <div className="input-container">
           <input type="text" name="email"
               value={this.state.email}
               onChange={this.handleInput}
               placeholder="Mobile number or email"
           />
+          <div className="error-popup first-name-errors">{emailErr}</div>
+          </div>
 
+          <div className="input-container">
           <input type="text" name="secondemail"
               value={this.state.secondemail}
               onChange={this.handleInput}
               placeholder="Re-enter mobile number or email"
           />
+          <div className="error-popup first-name-errors">{emailErr}</div>
+          </div>
 
+          <div className="input-container">
           <input type="text" name="password"
               value={this.state.password}
               onChange={this.handleInput}
               placeholder="New password"
           />
+          <div className="error-popup first-name-errors">{passwordErr}</div>
+          </div>
+          </div>
+
 
           <h3>Birthday</h3>
+
           <div className="birthday group">
+          <div className="input-container">
             <select name="birthmonth" onChange={this.handleInput}>
               <option value="-1">Month</option>
               {monthPicker}
@@ -160,12 +176,18 @@ class SignupForm extends React.Component {
               <a href="#">Why do I need to provide my birthday?</a>
             </aside>
           </div>
+          <div className="error-popup birthday-errors">{birthdayErr}</div>
+          </div>
+
 
           <div name="gender" className="genderselect group" onChange={this.setGender}>
+          <div className="input-container">
             <label>
             <input type="radio" name="gender" value="female"/> Female</label>
             <label>
             <input type="radio" name="gender" value="male"/> Male</label>
+            </div>
+            <div className="error-popup gender-errors">{genderErr}</div>
           </div>
 
           <div className="confirm">
@@ -178,10 +200,6 @@ class SignupForm extends React.Component {
           </div>
 
       </form>
-
-      <div className="celeb-place">
-        <a href="#">Create a Page</a> for a celebrity, band or business.
-      </div>
       </section>
     );
   }

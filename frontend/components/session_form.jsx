@@ -21,7 +21,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(
-          () => this.redirect(), 
+          () => this.redirect(),
           () => console.log('errors')
     );
   }
@@ -35,17 +35,12 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const errors = this.props.errors.map((err, idx) => {
-        return (
-          <li key={idx}>{err}</li>
-        );
-    });
+    const loginErrors = this.props.errors[0] ?
+      "Your login wansn't quite right... try again?" :
+      null
+
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
-
-        <ul className="error-messages">
-          {errors}
-        </ul>
 
         <div className="login-input-group">
           <label htmlFor="email">Email</label>
@@ -54,7 +49,11 @@ class SessionForm extends React.Component {
               value={this.state.email}
               onChange={this.handleInput}
           />
+          <div className="login-errors">
+            {loginErrors}
+          </div>
         </div>
+
 
         <div className="login-input-group">
           <label htmlFor="password">Password</label>
