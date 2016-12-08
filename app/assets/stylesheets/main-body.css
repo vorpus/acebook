@@ -8,10 +8,11 @@
 }
 
 .main-body-left {
-  width: 180px;
+  width: 170px;
   float: left;
   font-size: 12px;
   position: fixed;
+  margin-right: 10px;
 }
 
 .main-body-left ul {
@@ -20,6 +21,15 @@
 
 .main-body-left li {
   padding: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.main-body-left li:hover {
+  padding: 5px;
+  background:#F6F7F9;
+  border: 1px solid #DDDFE2;
+  box-sizing: border-box;
 }
 
 .main-left-title {
@@ -46,13 +56,65 @@
 }
 
 .body-content-col {
-  padding: 15px;
   box-sizing: border-box;
   margin-bottom: 15px;
   width: 500px;
   background: white;
-  height: 200px;
   box-shadow: 1px 1px #DFE0E4;
+}
+
+.post-content-post {
+  padding: 15px;
+}
+
+.post-content-topper {
+  margin-bottom: 15px;
+}
+
+.post-content-thumb {
+  float: left;
+  margin-right: 10px;
+}
+
+.post-content-name {
+  margin-top: 7px;
+  float: left;
+  font-weight: bold;
+  color: #36589F;
+}
+
+.post-content-timestamp {
+  color: #ADB2BB;
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.post-content-body {
+  margin-bottom: 20px;
+}
+
+.post-content-actions {
+  border-top: 1px solid #DDDFE2;
+  padding-top: 15px;
+  color: #AFB4BD;
+
+}
+
+.post-content-actions-like {
+  font-size: 14px;
+  float:left;
+  margin-right: 35px;
+  cursor: pointer;
+}
+
+.post-content-actions-like:hover {
+  text-decoration: underline;
+}
+
+.post-content-actions-like .material-icons {
+  float: left;
+  font-size: 14px;
+  margin-right: 5px;
 }
 
 .main-body-right-positioner {

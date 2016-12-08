@@ -22,10 +22,13 @@ export const createPost = (post) => {
   };
 };
 
-export const receivePost = (post) => ({
-  type: RECEIVE_POST,
-  post
-});
+export const receivePost = (post) => {
+  return { type: RECEIVE_POST,
+    post: { body: post.body, email: post.email}
+  };
+}
+
+
 
 export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,

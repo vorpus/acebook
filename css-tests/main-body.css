@@ -47,12 +47,10 @@ body {
 }
 
 .body-content-col {
-  padding: 15px;
   box-sizing: border-box;
   margin-bottom: 15px;
   width: 500px;
   background: white;
-  height: 200px;
   box-shadow: 1px 1px #DFE0E4;
 }
 

@@ -4,19 +4,19 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.new(post_params)
+    @post = current_user.posts.new(post_params)
 
-    if post.save
-      render json: post
+    if @post.save
+      render :show
     else
-      render json: post.errors.full_messages, status: 422
+      render json: @post.errors.full_messages, status: 422
     end
   end
 
   def show
     post = Post.find(params[:id])
     if post
-      render json: post
+      render :show
     else
       render json: ["post not found"], status: 404
     end
