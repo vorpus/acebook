@@ -5,6 +5,7 @@ import { fetchPosts, createPost, receivePost, receivePosts } from '../actions/po
 
 const mapStateToProps = (state) => {
   return {
+    postKeys: Object.keys(state.posts).reverse(),
     posts: state.posts,
     errors: state.session.errors
   }

@@ -8,6 +8,7 @@ class Greeting extends React.Component {
 
     this.log_out = this.log_out.bind(this);
     this.yourname = this.yourname.bind(this);
+    this.startSearch = this.startSearch.bind(this);
   }
 
 
@@ -23,6 +24,11 @@ class Greeting extends React.Component {
     }
   }
 
+  startSearch(e) {
+    e.preventDefault();
+    console.log('search not implemented yet :)');
+  }
+
   render() {
     return (
         <header className="main-header">
@@ -30,7 +36,7 @@ class Greeting extends React.Component {
 
             <div className="searchbar-component">
               <div className="header-logo">♠</div>
-              <form className="header-searchbar" action="index.html" method="post">
+              <form className="header-searchbar" onSubmit={this.startSearch}>
                 <input type="text" name="" value="" placeholder="Search Facebook" />
                 <button type="submit" name="submit"><i className="material-icons">search</i></button>
               </form>

@@ -54,11 +54,12 @@
 
 .header-searchbar button {
   background: #f6f7f9;
-  width: 45px;
+  width: 30px;
   border: none;
   margin-left: -5px;
-  height: 24px;
+  height: 23px;
   float: left;
+  padding-left: 10px;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
 }

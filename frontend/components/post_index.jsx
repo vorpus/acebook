@@ -11,17 +11,18 @@ class PostIndex extends React.Component {
   }
 
   render() {
-    const {posts} = this.props;
-    const postItems = Object.values(posts).map((e,idx) => {
+    const {postKeys, posts} = this.props;
+    const postItems = postKeys.map(postId => {
+      debugger
       return (
-        <div key={idx} className="body-content-col">
+        <div key={postId} className="body-content-col">
           <div className="post-content-post">
             <div className="post-content-topper group">
               <div className="post-content-thumb">
                 <img src="http://placecorgi.com/40/40" alt="" />
               </div>
               <div className="post-content-name group">
-                {e.email}
+                {posts[postId].email}
                 <br/>
                 <div className="post-content-timestamp">
                   1 hour ago
@@ -31,7 +32,7 @@ class PostIndex extends React.Component {
             </div>
 
             <div className="post-content-body">
-              {e.body}
+              {posts[postId].body}
             </div>
 
             <div className="post-content-actions group">
