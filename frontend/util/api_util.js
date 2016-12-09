@@ -56,6 +56,22 @@ export function createPost (post) {
   });
 }
 
+//FRIEND FUNCS
+
+export function addFriend(friendId) {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/users/${friendId}/friends`
+  });
+}
+
+export function findFriend(friendId) {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${friendId}/friends`
+  });
+}
+
 
 // user = {"firstname": "test1", "lastname": "test2", "email": "test2", "password": "123qwe", "birthday": new Date(), "gender":"male"}
 // user = {"email": "testing", "password": "123qwe"}

@@ -12,6 +12,11 @@
 #  gender          :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  current_town    :string
+#  home_town       :string
+#  relationship    :string
+#  workplace       :string
+#  school          :string
 #
 
 class User < ActiveRecord::Base
@@ -24,6 +29,11 @@ class User < ActiveRecord::Base
   has_many :posts,
     primary_key: :id,
     foreign_key: :author_id
+
+  has_many :friends,
+    class_name: :Friend,
+    primary_key: :id,
+    foreign_key: :user1
 
   attr_reader :password
 
@@ -56,5 +66,21 @@ class User < ActiveRecord::Base
 
   def ensure_session_token
     self.session_token ||= User.generate_session_token
+  end
+
+  def active_friends
+    User.where(id: Friend.active_friendships(self))
+  end
+
+  def requesting_friends
+    User.where(id: Friend.requesting_friendships(self))
+  end
+
+  def requested_friends
+    User.where(id: Friend.requested_friendships(self))
+  end
+
+  def friend_status(user2)
+    Friend.friend_status(self, user2)
   end
 end
