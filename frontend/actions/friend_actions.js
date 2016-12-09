@@ -36,7 +36,7 @@ export const removeFriend = (friendshipId) => {
   return (dispatch) => {
     return APIUtil.removeFriend(friendshipId).then(
       //TODO: NEED WHAT TO DO AFTER DELETING FRIEND?
-      (success) => dispatch(receiveFriend(success)),
+      (success) => dispatch(receiveFriend(null)),
       (err) => dispatch(receiveErrors(err))
     );
   };

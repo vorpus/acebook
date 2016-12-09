@@ -5,6 +5,10 @@ import PostIndexContainer from './post_index_container';
 class UserProfile extends React.Component {
   constructor(params) {
     super(params);
+
+    this.addFriend = this.addFriend.bind(this);
+    this.removeFriendship = this.removeFriendship.bind(this);
+    this.acceptFriendship = this.acceptFriendship.bind(this);
   }
 
   componentDidMount() {
@@ -14,7 +18,6 @@ class UserProfile extends React.Component {
 
   componentWillUpdate(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
-
       this.props.getUser(nextProps.params.id);
     }
   }
@@ -51,8 +54,37 @@ class UserProfile extends React.Component {
     }
   }
 
-  friendButton() {
+  addFriend() {
+    this.props.addFriend(this.props.params.id);
+  }
 
+  removeFriendship() {
+    this.props.removeFriend(this.props.friendRelationship.id);
+  }
+
+  acceptFriendship() {
+    this.props.acceptFriend(this.props.friendRelationship.id);
+  }
+
+  friendButton() {
+    if (this.props.friendRelationship) {
+      if (this.props.friendRelationship.status === "active") {
+        return(<div onClick={this.removeFriendship}>Friends</div>);
+      } else {
+        if (this.props.friendRelationship.user1 == this.props.params.id) {
+          return(<div onClick={this.acceptFriendship}>Accept Friendship</div>);
+        } else {
+          return(<div onClick={this.removeFriendship}>Pending...</div>);
+        }
+      }
+    } else {
+      if (this.props.params.id == this.props.currentUser.id) {
+        return(<div>Update Profile</div>)
+      } else {
+        return(<div onClick={this.addFriend}>Add Friend</div>);
+      }
+
+    }
   }
 
   render() {
@@ -70,7 +102,7 @@ class UserProfile extends React.Component {
               <div className="profile-cover-name">{fullName}</div>
             </div>
             <div className="profile-cover-buttons">
-              <div className="profile-cover-friend">Add Friend</div>
+              <div className="profile-cover-friend">{this.friendButton()}</div>
             </div>
           </div>
 

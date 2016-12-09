@@ -5,9 +5,9 @@ import { getUser } from '../actions/user_actions';
 import { addFriend, findFriend, acceptFriend, removeFriend } from '../actions/friend_actions';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     postKeys: Object.keys(state.posts).reverse(),
+    currentUser: state.session.currentUser,
     posts: state.posts,
     user: state.user.user,
     errors: state.session.errors,
