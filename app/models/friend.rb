@@ -70,8 +70,8 @@ class Friend < ActiveRecord::Base
   end
 
   def self.find_friendship(user_a, user_b)
-    ua = user_a.class == Fixnum ? user_a : user_a.id
-    ub = user_b.class == Fixnum ? user_b : user_b.id
+    ua = user_a.class == User ? user_a.id : user_a
+    ub = user_b.class == User ? user_b.id : user_b
 
     pendings = Friend
       .where("user1 = #{ua} AND user2 = #{ub}")

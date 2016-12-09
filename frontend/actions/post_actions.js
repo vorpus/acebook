@@ -22,6 +22,10 @@ export const createPost = (post) => {
   };
 };
 
+// delete post
+
+// edit post
+
 export const receivePost = (post) => {
   return { type: RECEIVE_POST,
     post

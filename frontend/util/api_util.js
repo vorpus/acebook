@@ -57,7 +57,6 @@ export function createPost (post) {
 }
 
 //FRIEND FUNCS
-
 export function addFriend(friendId) {
   return $.ajax({
     method: 'POST',
@@ -69,6 +68,20 @@ export function findFriend(friendId) {
   return $.ajax({
     method: 'GET',
     url: `/api/users/${friendId}/friends`
+  });
+}
+
+export function removeFriend(friendshipId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/friends/${friendshipId}`
+  });
+}
+
+export function acceptFriend(friendshipId) {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/friends/${friendshipId}`
   });
 }
 

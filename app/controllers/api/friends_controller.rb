@@ -1,7 +1,7 @@
 class Api::FriendsController < ApplicationController
   def index
     if params.has_key?(:user_id)
-      @friends = User.find(params[:user_id]).active_friends
+      render json: Friend.find_friendship(current_user.id, params[:user_id])
     else
       render json: ["Invalid user!"], status: 404
     end
@@ -34,8 +34,33 @@ class Api::FriendsController < ApplicationController
   end
 
   def update
+    @friendship = Friend.find_by(id: params[:id])
+    if @friendship
+      if @friendship[:user2] == current_user.id
+        if @friendship.update(status:"active")
+          render json: @friendship
+        else
+          render json: @friendship.errors, status: 404
+        end
+      else
+        render json: ["Waiting on other party action"], status: 403
+      end
+    else
+      render json: ["Friendship not found"], status: 404
+    end
   end
 
-  def delete
+  def destroy
+    @friendship = Friend.find_by(id: params[:id])
+    if @friendship
+      if @friendship.delete
+        render json: {}
+      else
+        render json: @friendship.errors, status: 404
+      end
+    else
+      render json: ["Friendship not found"], status: 404
+    end
+
   end
 end
