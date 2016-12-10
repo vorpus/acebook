@@ -23,6 +23,7 @@ http://cloudcannon.com/deconstructions/2014/11/15/facebook-content-placeholder-d
 * seed data custom times
 http://stackoverflow.com/questions/2417182/changing-created-at-for-seed-rb-data
 
+* need to do logged in check on user profile - logout button doesn't work properly
 
 FRIEND TABLE:
 USER1 IS PERSON WHO REQUESTED

@@ -78,10 +78,12 @@ class UserProfile extends React.Component {
         }
       }
     } else {
-      if (this.props.params.id == this.props.currentUser.id) {
-        return(<div>Update Profile</div>)
-      } else {
-        return(<div onClick={this.addFriend}>Add Friend</div>);
+      if (this.props.currentUser) {
+        if (this.props.params.id == this.props.currentUser.id) {
+          return(<div>Update Profile</div>)
+        } else {
+          return(<div onClick={this.addFriend}>Add Friend</div>);
+        }
       }
 
     }
