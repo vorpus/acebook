@@ -20,7 +20,7 @@ class Root extends React.Component {
   render() {
     return (
       <Provider store={ this.props.store }>
-        <Router history={ hashHistory }>
+        <Router onUpdate={() => window.scrollTo(0, 0)} history={ hashHistory }>
           <Route path="/login" component={NewSession}/>
           <Route path="/" component={ App } onEnter={this._redirectIfLoggedIn} />
           <Route path="profile/:id" component={UserProfile} onEnter={this._redirectIfLoggedIn} />

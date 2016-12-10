@@ -17,6 +17,8 @@
 #  relationship    :string
 #  workplace       :string
 #  school          :string
+#  profilepic_url  :string
+#  coverpic_url    :string
 #
 
 class User < ActiveRecord::Base
@@ -34,6 +36,11 @@ class User < ActiveRecord::Base
     class_name: :Friend,
     primary_key: :id,
     foreign_key: :user1
+
+  has_many :mentions,
+    class_name: :Post,
+    primary_key: :id,
+    foreign_key: :tagged_user
 
   attr_reader :password
 

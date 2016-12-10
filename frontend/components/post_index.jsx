@@ -30,7 +30,7 @@ class PostIndex extends React.Component {
                 <img src="http://placecorgi.com/40/40" alt="" />
               </div>
               <div className="post-content-name group">
-                <Link to={`/profile/${posts[postId].id}`}>{posts[postId].email}</Link>
+                <Link to={`/profile/${posts[postId].id}`}>{posts[postId].firstname} {posts[postId].lastname}</Link>
                 <br/>
                 <div className="post-content-timestamp">
                   <TimeAgo date={posts[postId].created_at} minPeriod="60" />

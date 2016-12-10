@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208223737) do
+ActiveRecord::Schema.define(version: 20161209201644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 20161208223737) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.text     "body",       null: false
-    t.integer  "author_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "body",        null: false
+    t.integer  "author_id",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "tagged_user"
     t.index ["author_id"], name: "index_posts_on_author_id", using: :btree
   end
 
@@ -47,6 +48,8 @@ ActiveRecord::Schema.define(version: 20161208223737) do
     t.string   "relationship"
     t.string   "workplace"
     t.string   "school"
+    t.string   "profilepic_url"
+    t.string   "coverpic_url"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 

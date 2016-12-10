@@ -1,2 +1,4 @@
-json.extract! @post, :author, :body, :created_at, :id
-json.email @post.author.email
+json.set! @post.id do
+  json.extract! @post, :body, :created_at
+  json.partial! 'api/users/user', user: @post.author
+end

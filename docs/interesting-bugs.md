@@ -1,5 +1,7 @@
 1. logout after refreshing page gave strange errors, turns out you need to dispatch the redirect. Also setting logout state causes rerender which could break certain jsx elements.
 
+2. How to implement friend cycle using only api methods available to us - ended up with a lot of class methods on the model to locate friendship and update.
+
 TODO:
 * how to debug for mobile?
 
@@ -10,6 +12,17 @@ TODO:
 * how does user profile work? posts made by user or posts directed toward user? how to make this into query?
 
 * add profile pic url and cover pic url to user
+
+* make links on header work
+
+* loading bar
+http://cloudcannon.com/deconstructions/2014/11/15/facebook-content-placeholder-deconstruction.html
+
+* visiting profile doesn't take you to top of page
+
+* seed data custom times
+http://stackoverflow.com/questions/2417182/changing-created-at-for-seed-rb-data
+
 
 FRIEND TABLE:
 USER1 IS PERSON WHO REQUESTED

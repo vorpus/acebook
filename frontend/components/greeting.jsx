@@ -18,7 +18,7 @@ class Greeting extends React.Component {
 
   yourname() {
     if (this.props.currentUser) {
-      return (this.props.currentUser.email);
+      return (<Link to={`/profile/${this.props.currentUser.id}`}>{this.props.currentUser.firstname}</Link>);
     } else {
       return "";
     }
