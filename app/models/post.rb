@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
     class_name: :User,
     foreign_key: :author_id
 
-  has_one :tagged_user,
+  belongs_to :tagged, optional: true,
     class_name: :User,
     foreign_key: :tagged_user
 end

@@ -20,7 +20,8 @@ class NewPost extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state).then(()=>{
+    
+    this.props.createPost(this.state, this.props.profileId).then(()=>{
       this.resetPostForm();
     })
 

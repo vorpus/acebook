@@ -48,12 +48,20 @@ export function getPosts (userId) {
   }
 }
 
-export function createPost (post) {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/posts',
-    data: { post: post }
-  });
+export function createPost (post, tagged_id) {
+  if (tagged_id) {
+    return $.ajax({
+      method: 'POST',
+      url: `/api/users/${tagged_id}/posts`,
+      data: { post: post }
+    });
+  } else {
+    return $.ajax({
+      method: 'POST',
+      url: '/api/posts',
+      data: { post: post }
+    });
+  }
 }
 
 //FRIEND FUNCS

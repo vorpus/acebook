@@ -21,7 +21,21 @@ class PostIndex extends React.Component {
 
   render() {
     const {postKeys, posts} = this.props;
+
+    const arrow = (<strong className="tagged-user-arrow">▶</strong>)
+
     const postItems = postKeys.map(postId => {
+
+      let taggedLink = () => {
+        if (posts[postId].tagged) {
+          return (
+            <div className="tagged-user-in-post">
+              {arrow}<Link to={`/profile/${posts[postId].tagged.id}`}>{posts[postId].tagged.firstname} {posts[postId].tagged.lastname}</Link>
+            </div>
+          )
+        }
+      }
+
       return (
         <div key={postId} className="body-content-col">
           <div className="post-content-post">
@@ -30,7 +44,8 @@ class PostIndex extends React.Component {
                 <img src="http://placecorgi.com/40/40" alt="" />
               </div>
               <div className="post-content-name group">
-                <Link to={`/profile/${posts[postId].id}`}>{posts[postId].firstname} {posts[postId].lastname}</Link>
+                <Link to={`/profile/${posts[postId].author.id}`} className="author-in-post">{posts[postId].author.firstname} {posts[postId].author.lastname}</Link>
+                {taggedLink()}
                 <br/>
                 <div className="post-content-timestamp">
                   <TimeAgo date={posts[postId].created_at} minPeriod="60" />
@@ -60,7 +75,7 @@ class PostIndex extends React.Component {
 
     return(
       <div>
-        <NewPostContainer />
+        <NewPostContainer profileId={this.props.profileId} />
         {postItems}
       </div>
     )

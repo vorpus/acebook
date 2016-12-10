@@ -18,6 +18,7 @@
  *= require_footer
  *= require_main-header
  *= require_main-body
+ *= require_post-view
  *= require_main-createpost
  *= require_profile-cover
  *= require_profile-body

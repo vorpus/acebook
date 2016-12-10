@@ -45,7 +45,7 @@ class Greeting extends React.Component {
             <div className="navigation-component">
 
               <ul className="navigation-text">
-                <li><a href="#">{this.yourname()}</a></li>
+                <li>{this.yourname()}</li>
                 <li><a href="#">Home</a></li>
               </ul>
 
