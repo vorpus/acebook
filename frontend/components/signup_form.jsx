@@ -46,7 +46,6 @@ class SignupForm extends React.Component {
       user.email = null;
     }
 
-    console.log(user);
     this.props.processForm(user).then(() => this.redirect(), () => console.log('errors'));
   }
 

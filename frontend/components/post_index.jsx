@@ -6,6 +6,8 @@ import TimeAgo from 'react-timeago';
 class PostIndex extends React.Component {
   constructor() {
     super();
+
+    // this.addLike = this.addLike.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +20,7 @@ class PostIndex extends React.Component {
       this.props.fetchPosts(nextProps.profileId);
     }
   }
+
 
   render() {
     const {postKeys, posts} = this.props;
@@ -38,9 +41,55 @@ class PostIndex extends React.Component {
 
       let postLikes = () => {
         if (posts[postId].likes) {
+          const howMany = Object.keys(posts[postId].likes).length;
+          const likeOrLikes = howMany > 1 ? "likes" : "like"
           return(
             <div className="post-content-likes">
-            <i className="material-icons">thumb_up</i> {posts[postId].likes.length} likes
+            <i className="material-icons">thumb_up</i> {howMany} {likeOrLikes}
+            </div>
+          )
+        }
+      }
+
+      let addLike = () => {
+        this.props.addLike(postId).then(()=>{
+          this.props.fetchPosts(this.props.profileId);
+        });
+      }
+
+      let removeLike = (likeId) => {
+
+        this.props.removeLike(likeId).then(()=>{
+          this.props.fetchPosts(this.props.profileId);
+        });
+      }
+
+      let likeButton = () => {
+        if (!store.getState().session.currentUser) {
+          return (<h1>not logged in</h1>);
+        }
+        let liked = false;
+        let likeId;
+
+        if (posts[postId].likes) {
+          Object.keys(posts[postId].likes).forEach((key)=> {
+            if (posts[postId].likes[key].userId === store.getState().session.currentUser.id) {
+              likeId = key;
+              liked = true;
+            }
+          })
+        }
+
+        if (!liked) {
+          return (
+            <div className="post-content-actions-like" onClick={addLike}>
+              <i className="material-icons">thumb_up</i> Like
+            </div>
+          )
+        } else {
+          return (
+            <div className="post-content-actions-like liked" onClick={() => removeLike(likeId)}>
+              <i className="material-icons">thumb_up</i> Liked
             </div>
           )
         }
@@ -70,9 +119,7 @@ class PostIndex extends React.Component {
             </div>
 
             <div className="post-content-actions group">
-              <div className="post-content-actions-like">
-                <i className="material-icons">thumb_up</i> Like
-              </div>
+              {likeButton()}
 
               <div className="post-content-actions-like">
                 <i className="material-icons">comment</i> Comment
@@ -83,7 +130,7 @@ class PostIndex extends React.Component {
           <div className="post-content-footer">
             {postLikes()}
             <div className="post-content-comments">
-              Hello!
+
             </div>
           </div>
         </div>

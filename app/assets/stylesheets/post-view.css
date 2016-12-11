@@ -82,6 +82,11 @@
 .post-content-likes {
   border-bottom: 1px solid #DDDFE2;
   margin-bottom: 10px;
+  color: #5890FF;
+}
+
+.post-content-actions-like.liked {
+  color: #5890FF;
 }
 
 .post-content-comments {
