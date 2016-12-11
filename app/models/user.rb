@@ -42,6 +42,11 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :tagged_user
 
+  has_many :likes,
+    class_name: :Like,
+    primary_key: :id,
+    foreign_key: :user_id
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)

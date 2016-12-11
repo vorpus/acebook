@@ -19,6 +19,7 @@ class UserProfile extends React.Component {
   componentWillUpdate(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
       this.props.getUser(nextProps.params.id);
+      this.props.findFriend(this.props.params.id);
     }
   }
 

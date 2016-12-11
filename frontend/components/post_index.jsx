@@ -36,7 +36,18 @@ class PostIndex extends React.Component {
         }
       }
 
+      let postLikes = () => {
+        if (posts[postId].likes) {
+          return(
+            <div className="post-content-likes">
+            <i className="material-icons">thumb_up</i> {posts[postId].likes.length} likes
+            </div>
+          )
+        }
+      }
+
       return (
+
         <div key={postId} className="body-content-col">
           <div className="post-content-post">
             <div className="post-content-topper group">
@@ -68,6 +79,12 @@ class PostIndex extends React.Component {
               </div>
             </div>
 
+          </div>
+          <div className="post-content-footer">
+            {postLikes()}
+            <div className="post-content-comments">
+              Hello!
+            </div>
           </div>
         </div>
       )

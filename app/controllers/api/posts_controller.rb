@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
     if params.has_key?(:user_id)
       # @posts = Post.where(author_id: params[:user_id])
       @posts = Post.where("tagged_user = ? or (tagged_user IS NULL and author_id = ?)", params[:user_id], params[:user_id])
-      @posts.includes(:author, :tagged)
+      @posts.includes(:author, :tagged, :likes)
     else
       @posts = Post.order(created_at: :desc).includes(:author, :tagged)
     end
@@ -43,7 +43,7 @@ class Api::PostsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     post = Post.find(params[:id])
 
     if post.destroy

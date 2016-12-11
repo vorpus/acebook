@@ -66,3 +66,23 @@
   font-size: 14px;
   margin-right: 5px;
 }
+
+.post-content-footer {
+  background: #F6F7F9;
+  border-top: 1px solid #DDDFE2;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.post-content-footer .material-icons {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.post-content-likes {
+  border-bottom: 1px solid #DDDFE2;
+  margin-bottom: 10px;
+}
+
+.post-content-comments {
+}

@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy]
 
-    resources :posts, except: [:new, :edit]
+    resources :posts, except: [:new, :edit] do
+      resources :likes, only: [:index, :create]
+    end
+
+    resources :likes, only: [:destroy]
 
     resources :friends, only: [:update, :destroy]
 
