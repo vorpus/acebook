@@ -38,8 +38,10 @@ class NewPost extends React.Component {
 
 
   render() {
-    
-    const style = {backgroundImage:"url("+this.props.currentUser.profilepic+")"};
+    let style;
+    if (this.props.currentUser) {
+      style = {backgroundImage:"url("+this.props.currentUser.profilepic+")"};
+    }
 
     return (
       <div className="body-content-col group">

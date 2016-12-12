@@ -6,9 +6,15 @@ class UserProfile extends React.Component {
   constructor(params) {
     super(params);
 
+    this.state = {
+      imageUrl: "",
+      imageFile: null,
+    }
+
     this.addFriend = this.addFriend.bind(this);
     this.removeFriendship = this.removeFriendship.bind(this);
     this.acceptFriendship = this.acceptFriendship.bind(this);
+    this.uploadNewPhoto = this.uploadNewPhoto.bind(this);
   }
 
   componentDidMount() {
@@ -71,8 +77,14 @@ class UserProfile extends React.Component {
     if (this.props.currentUser) {
       if (this.props.params.id == this.props.currentUser.id) {
         return (
-          <div className="profile-picture-editpic">
+          <div className="profile-picture-editpic" onClick={ () => {
+            $('#profile-pic-input').click()
+          }}>
+
             <i className='material-icons'>camera_enhance</i>
+            <form className="profile-picture-form" >
+              <input id="profile-pic-input" type="file" name="" value="" onChange={this.uploadNewPhoto}/>
+            </form>
           </div>
         );
       } else {
@@ -81,6 +93,16 @@ class UserProfile extends React.Component {
     } else {
       return (<div></div>)
     }
+  }
+
+  uploadNewPhoto(e) {
+
+    var file = e.currentTarget.files[0];
+
+    var formData = new FormData();
+    formData.append("user[profilepic]", file);
+    debugger
+    this.props.updateUser(this.props.currentUser.id, formData);
   }
 
   friendButton() {
@@ -107,10 +129,11 @@ class UserProfile extends React.Component {
   }
 
   render() {
+
     const fullName = this.props.user ? `${this.props.user.firstname} ${this.props.user.lastname}` : ""
     const firstName = this.props.user ? `${this.props.user.firstname}` : ""
 
-    const userProfilePic = this.props.user ? this.props.user.profilepic : "http://www.placecorgi.com/160/160"
+    const userProfilePic = this.props.user ? this.props.user.profilepic : ""
     const style = {backgroundImage:"url("+userProfilePic+")"};
     // debugger
     return (

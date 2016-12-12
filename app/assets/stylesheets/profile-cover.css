@@ -86,7 +86,10 @@
   background:black;
   opacity: 0.5;
   text-align: center;
+}
 
+.profile-picture-form {
+  display: none;
 }
 
 .profile-picture-editpic:hover {
