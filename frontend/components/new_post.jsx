@@ -20,7 +20,7 @@ class NewPost extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
+
     this.props.createPost(this.state, this.props.profileId).then(()=>{
       this.resetPostForm();
     })
@@ -35,7 +35,12 @@ class NewPost extends React.Component {
     });
   }
 
+
+
   render() {
+    
+    const style = {backgroundImage:"url("+this.props.currentUser.profilepic+")"};
+
     return (
       <div className="body-content-col group">
         <form className="new-post-form"
@@ -49,8 +54,7 @@ class NewPost extends React.Component {
                 Photo/Video
               </a>
             </div>
-            <div className="new-post-thumb">
-              <img src="http://placecorgi.com/40/40" alt="" />
+            <div className="new-post-thumb" style={style}>
             </div>
             <textarea name="body" rows="2" cols="80"
               onChange={this.handleInput}

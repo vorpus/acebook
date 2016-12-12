@@ -15,6 +15,14 @@ export function getUser (userId) {
   })
 }
 
+export function updateUser (userId, data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/users/${userId}`,
+    data: { user: data }
+  })
+}
+
 //SESSION FUNCS
 
 export function loginUser (user) {

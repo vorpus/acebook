@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210201028) do
+ActiveRecord::Schema.define(version: 20161211202833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,15 +42,15 @@ ActiveRecord::Schema.define(version: 20161210201028) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "firstname",       null: false
-    t.string   "lastname",        null: false
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.date     "birthday",        null: false
-    t.string   "gender",          null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "firstname",               null: false
+    t.string   "lastname",                null: false
+    t.string   "email",                   null: false
+    t.string   "password_digest",         null: false
+    t.string   "session_token",           null: false
+    t.date     "birthday",                null: false
+    t.string   "gender",                  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "current_town"
     t.string   "home_town"
     t.string   "relationship"
@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 20161210201028) do
     t.string   "school"
     t.string   "profilepic_url"
     t.string   "coverpic_url"
+    t.string   "profilepic_file_name"
+    t.string   "profilepic_content_type"
+    t.integer  "profilepic_file_size"
+    t.datetime "profilepic_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 

@@ -12,6 +12,7 @@ TODO:
 * how does user profile work? posts made by user or posts directed toward user? how to make this into query?
 
 * add profile pic url and cover pic url to user
+https://github.com/appacademy/curriculum/tree/master/full-stack-project/demos/file_upload_demo
 
 * make links on header work
 

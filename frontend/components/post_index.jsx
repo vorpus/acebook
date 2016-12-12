@@ -95,13 +95,14 @@ class PostIndex extends React.Component {
         }
       }
 
+      const style = {backgroundImage:"url("+posts[postId].author.profilepic+")"};
+
       return (
 
         <div key={postId} className="body-content-col">
           <div className="post-content-post">
             <div className="post-content-topper group">
-              <div className="post-content-thumb">
-                <img src="http://placecorgi.com/40/40" alt="" />
+              <div className="post-content-thumb" style={style}>
               </div>
               <div className="post-content-name group">
                 <Link to={`/profile/${posts[postId].author.id}`} className="author-in-post">{posts[postId].author.firstname} {posts[postId].author.lastname}</Link>

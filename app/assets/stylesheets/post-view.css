@@ -12,6 +12,14 @@
   margin-right: 10px;
 }
 
+.post-content-thumb {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 .post-content-name {
   margin-top: 7px;
   float: left;
@@ -21,6 +29,7 @@
 
 .author-in-post {
   float: left;
+  text-transform: capitalize;
 }
 
 .tagged-user-in-post {

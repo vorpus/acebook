@@ -67,6 +67,22 @@ class UserProfile extends React.Component {
     this.props.acceptFriend(this.props.friendRelationship.id);
   }
 
+  updateProfilePicButton() {
+    if (this.props.currentUser) {
+      if (this.props.params.id == this.props.currentUser.id) {
+        return (
+          <div className="profile-picture-editpic">
+            <i className='material-icons'>camera_enhance</i>
+          </div>
+        );
+      } else {
+        return (<div></div>)
+      }
+    } else {
+      return (<div></div>)
+    }
+  }
+
   friendButton() {
     if (this.props.friendRelationship) {
       if (this.props.friendRelationship.status === "active") {
@@ -94,6 +110,9 @@ class UserProfile extends React.Component {
     const fullName = this.props.user ? `${this.props.user.firstname} ${this.props.user.lastname}` : ""
     const firstName = this.props.user ? `${this.props.user.firstname}` : ""
 
+    const userProfilePic = this.props.user ? this.props.user.profilepic : "http://www.placecorgi.com/160/160"
+    const style = {backgroundImage:"url("+userProfilePic+")"};
+    // debugger
     return (
       <div>
       <GreetingContainer />
@@ -111,7 +130,9 @@ class UserProfile extends React.Component {
 
           <div className="profile-topper-bottom">
             <div className="profile-picture">
-              <div className="profile-picture-picture" style={{"background":"url(http://www.placecorgi.com/160/160)"}}></div>
+              <div className="profile-picture-picture" style={style}>
+                {this.updateProfilePicButton()}
+              </div>
             </div>
             <ul className="profile-navigation">
               <li><a href="#">Timeline</a></li>
