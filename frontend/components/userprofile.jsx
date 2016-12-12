@@ -101,8 +101,7 @@ class UserProfile extends React.Component {
 
     var formData = new FormData();
     formData.append("user[profilepic]", file);
-    debugger
-    this.props.updateUser(this.props.currentUser.id, formData);
+    this.props.updateUser(formData);
   }
 
   friendButton() {

@@ -11,10 +11,9 @@ export const getUser = (userId) => {
   };
 };
 
-export const updateUser = (userId, data) => {
-  debugger
+export const updateUser = (data) => {
   return (dispatch) => {
-    return APIUtil.updateUser(userId, data).then(
+    return APIUtil.updateUser(data).then(
       (success) => dispatch(receiveUser(success)),
       (err) => dispatch(receiveErrors(err))
     );

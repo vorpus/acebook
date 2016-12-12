@@ -14,7 +14,9 @@ jcarver = User.create!(firstname:"Jason", lastname: "Somerville",
                     email:"jcarver@poker.com", password:"jason1",
                     birthday: Date.new(1987,4,15), gender: "male",
                     current_town: "New Jersey", home_town: "New Jersey",
-                    relationship: "single", workplace: "Self-employed")
+                    relationship: "single", workplace: "Self-employed",
+                    profilepic: File.open('app/assets/images/seed_img/jcarver.jpg')
+                    )
 
 jcarver.posts.create!(body:"enjoy your holidays everyone and I look forward to another full season of dirty basement bliss on @Twitch starting early January! #peace")
 jcarver.posts.create!(body:"we are live grinding the Canadian @PokerStars streets come hang out!!")
@@ -25,7 +27,9 @@ sam = User.create!(firstname:"Samantha", lastname: "Abernathy",
                     email:"sam@poker.com", password:"sam123",
                     birthday: Date.new(1991, 5, 11), gender: "female",
                     current_town: "Atlanta",
-                    relationship: "It's complicated", workplace: "Self-employed")
+                    relationship: "It's complicated", workplace: "Self-employed",
+                    profilepic: File.open('app/assets/images/seed_img/samab.jpg')
+                    )
 #
 sam.posts.create(body:"Hello!")
 sam.posts.create(body:"Selfishly trying to convince dmoongirl to adopt a potbelly pig instead of a dog.")
@@ -41,7 +45,9 @@ dan = User.create!(firstname:"Dan", lastname: "Bilzerian",
                     birthday: Date.new(1980, 12, 7), gender: "male",
                     current_town: "Las Vegas", home_town: "Tampa",
                     school: "University of Florida",
-                    relationship: "married", workplace: "IG King")
+                    relationship: "married", workplace: "IG King",
+                    profilepic: File.open('app/assets/images/seed_img/danbilz.jpeg')
+                    )
 #
 dan.posts.create(body:"The bums will always lose")
 dan.posts.create(body:"Just watched Leo's documentary Before The Flood, definitely worth seeing.  I'm not getting paid to promote it, just letting u know")
@@ -56,7 +62,9 @@ liv = User.create!(firstname:"Liv", lastname: "Boeree",
                     email:"liv@poker.com", password:"liv123",
                     birthday: Date.new(1984, 7, 18), gender: "female",
                     current_town: "Kent, England",
-                    relationship: "single", workplace: "Iron Maiden")
+                    relationship: "single", workplace: "Iron Maiden",
+                    profilepic: File.open('app/assets/images/seed_img/livboe.jpg')
+                    )
 #
 liv.posts.create(body:"All this time I've just been living my life, completely unaware that my name is an anagram of I love beer.")
 liv.posts.create(body:"My singing definitely isn't good enough to be given the credit for this..")
@@ -66,7 +74,9 @@ oliver = User.create!(firstname:"Oliver", lastname: "Busquet",
                     email:"oliver@poker.com", password:"oliver",
                     birthday: Date.new(1981, 8, 22), gender: "male",
                     current_town: "New York City", school: "Cornell University",
-                    relationship: "single", workplace: "WSOP")
+                    relationship: "single", workplace: "WSOP",
+                    profilepic: File.open('app/assets/images/seed_img/oliverb.jpeg')
+                    )
 #
 oliver.posts.create(body:"I played w/ @catehall in 5k at bellagio and 4 all the haters who r waiting 4 her run good 2 end, ur probably gonna be waiting a long time")
 oliver.posts.create(body:"Hey Nyugen, lil piece of advice: play tight for the rest of your life. You're gonna get paid off forever.....")
@@ -78,7 +88,9 @@ vanessa = User.create!(firstname:"Vanessa", lastname: "Selbst",
                     email:"van@poker.com", password:"van123",
                     birthday: Date.new(1984, 7, 9), gender: "female",
                     current_town: "Brooklyn", school: "MIT",
-                    relationship: "married", workplace: "DeucesCracked")
+                    relationship: "married", workplace: "DeucesCracked",
+                    profilepic: File.open('app/assets/images/seed_img/vanessa.jpeg')
+                    )
 #
 vanessa.posts.create(body:"Speaking of recent good reads by conservatives I don't agree with, I highly recommend Hillbilly Elegy. Well written and thought-provoking.")
 vanessa.posts.create(body:"Great tourney, great cause. If you're in the Las Vegas area, don't miss it!")
@@ -87,7 +99,9 @@ vanessa.posts.create(body:"Goodbye, Greece. It was a beautiful romance, but it h
 fedor = User.create!(firstname:"Fedor", lastname: "Holz",
                     email:"fedor@poker.com", password:"fedor1",
                     birthday: Date.new(1993, 7, 22), gender: "male",
-                    current_town: "Saarbrücken")
+                    current_town: "Saarbrücken",
+                    profilepic: File.open('app/assets/images/seed_img/fedor.jpeg')
+                    )
 #
 fedor.posts.create(body:"I didn't expect how nice it feels to be home - there is always something create and beautiful to discover.")
 fedor.posts.create(body:"Certain things capture your eye. But only pursue those that capture your heart.")
@@ -100,7 +114,9 @@ nanonoko = User.create!(firstname:"Randy", lastname: "Lew",
                     birthday: Date.new(1985, 7, 3), gender: "male",
                     relationship: "it's complicated",
                     current_town: "Sacramento",
-                    workplace: "TeamLiquid")
+                    workplace: "TeamLiquid",
+                    profilepic: File.open('app/assets/images/seed_img/nanonoko.jpeg')
+                    )
 #
 nanonoko.posts.create(body:"After burning the kitchen down in Overcooked over and over with @celina_lin …10min later we got unburnt real food")
 nanonoko.posts.create(body:"Vending machine ramen in Japan was so good! Funny way of ordering and you see random hands come out to give you the food")
@@ -111,7 +127,9 @@ nanonoko.posts.create(body:"Was intense and fun playing poker in the C U B E. We
 celina = User.create!(firstname:"Celina", lastname: "Lin",
                     email:"celina@poker.com", password:"celina1",
                     birthday: Date.new(1982, 5, 1), gender: "female",
-                    workplace: "PokerStars")
+                    workplace: "PokerStars",
+                    profilepic: File.open('app/assets/images/seed_img/celinalin.jpeg')
+                    )
 #
 celina.posts.create(body:"Playing the @PokerStarsAPPT #Melbourne main event today! Looks like it's gonna get over 500 entrants, nice prize pool up for grabs.")
 celina.posts.create(body:"Had a blissful 2hr afternoon massage, now heading in for the deepstack event @PokerStarsMacau #2016ACOP see u all there!")
@@ -126,13 +144,17 @@ elky = User.create!(firstname:"Bertrand", lastname: "Grospellier",
                     birthday: Date.new(1981, 2, 8), gender: "male",
                     current_town: "London",
                     home_town: "Melun",
-                    relationship: "married", workplace: "PokerStars")
+                    relationship: "married", workplace: "PokerStars",
+                    profilepic: File.open('app/assets/images/seed_img/bertrand.jpeg')
+                    )
 #
 staples = User.create!(firstname:"Jaime", lastname: "Staples",
                     email:"jaime@poker.com", password:"jaime1",
                     birthday: Date.new(1991, 5, 27), gender: "male",
                     current_town: "Alberta",
-                    relationship: "in a relationship", workplace: "PokerStaples")
+                    relationship: "in a relationship", workplace: "PokerStaples",
+                    profilepic: File.open('app/assets/images/seed_img/staples.jpeg')
+                    )
 #
 staples.posts.create(body:"Damn fun day! Tomorrow the hype lives on. See you guys there :)")
 staples.posts.create(body:"Spot of the day: $215 bounty I open, call cutoff, smallblind, bigblind. Flop check around. Turn FU bets 60%, fold/I call/fold. River spot???")
@@ -145,12 +167,16 @@ staples = User.create!(firstname:"Daniel", lastname: "Negreanu",
                     email:"daniel@poker.com", password:"daniel",
                     birthday: Date.new(1974, 7, 26), gender: "male",
                     current_town: "Toronto",
-                    relationship: "married", workplace: "High Stakes")
+                    relationship: "married", workplace: "High Stakes",
+                    profilepic: File.open('app/assets/images/seed_img/negrea.jpeg')
+                    )
 #
 rupert = User.create!(firstname:"Rupert", lastname: "Elder",
                     email:"rupert@poker.com", password:"rupert",
                     birthday: Date.new(1987, 10, 5), gender: "male",
                     current_town: "St Edmunds",
                     school: "University of Warwick",
-                    relationship: "single", workplace: "Poker Tour")
+                    relationship: "single", workplace: "Poker Tour",
+                    profilepic: File.open('app/assets/images/seed_img/rupert.jpeg')
+                    )
 #

@@ -15,10 +15,10 @@ export function getUser (userId) {
   })
 }
 
-export function updateUser (userId, data) {
+export function updateUser (data) {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/users/${userId}`,
+    url: `/api/users/_`,
     data,
     processData: false,
     contentType: false,
