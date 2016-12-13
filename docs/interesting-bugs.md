@@ -8,16 +8,12 @@ TODO:
 
 [ ] I want to keep the elements that do nothing
 
-[ ] Should friend return friend objects or can I return the relevant users?
-
-[ ] how does user profile work? posts made by user or posts directed toward user? how to make this into query?
-
 [x] add profile pic url and cover pic url to user
 https://github.com/appacademy/curriculum/tree/master/full-stack-project/demos/file_upload_demo
 
 [x] make links on header work
 
-[ ] loading bar
+[x] loading bar
 http://cloudcannon.com/deconstructions/2014/11/15/facebook-content-placeholder-deconstruction.html
 
 [x] visiting profile doesn't take you to top of page
@@ -26,6 +22,8 @@ http://cloudcannon.com/deconstructions/2014/11/15/facebook-content-placeholder-d
 http://stackoverflow.com/questions/2417182/changing-created-at-for-seed-rb-data
 
 [x] need to do logged in check on user profile - logout button doesn't work properly
+
+[ ] liking needs to be fixed.
 
 FRIEND TABLE:
 USER1 IS PERSON WHO REQUESTED

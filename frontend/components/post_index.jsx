@@ -52,15 +52,15 @@ class PostIndex extends React.Component {
       }
 
       let addLike = () => {
-        this.props.addLike(postId).then(()=>{
-          this.props.fetchPosts(this.props.profileId);
+        this.props.addLike(postId).then((success)=>{
+          this.props.fetchPost(success.like.post_id);
         });
       }
 
-      let removeLike = (likeId) => {
+      let removeLike = (likeId, likePostId) => {
 
-        this.props.removeLike(likeId).then(()=>{
-          this.props.fetchPosts(this.props.profileId);
+        this.props.removeLike(likeId).then((success)=>{
+          this.props.fetchPost(likePostId);
         });
       }
 
@@ -69,12 +69,13 @@ class PostIndex extends React.Component {
           return (<h1>not logged in</h1>);
         }
         let liked = false;
-        let likeId;
+        let likeId, likePostId;
 
         if (posts[postId].likes) {
           Object.keys(posts[postId].likes).forEach((key)=> {
             if (posts[postId].likes[key].userId === store.getState().session.currentUser.id) {
               likeId = key;
+              likePostId = postId;
               liked = true;
             }
           })
@@ -88,7 +89,7 @@ class PostIndex extends React.Component {
           )
         } else {
           return (
-            <div className="post-content-actions-like liked" onClick={() => removeLike(likeId)}>
+            <div className="post-content-actions-like liked" onClick={() => removeLike(likeId, likePostId)}>
               <i className="material-icons">thumb_up</i> Liked
             </div>
           )

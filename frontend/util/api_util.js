@@ -74,6 +74,13 @@ export function createPost (post, tagged_id) {
   }
 }
 
+export function fetchPost (postId) {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/posts/${postId}`,
+  })
+}
+
 //FRIEND FUNCS
 export function addFriend(friendId) {
   return $.ajax({

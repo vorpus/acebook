@@ -15,6 +15,15 @@ export const fetchPosts = (userId) => {
   };
 };
 
+export const fetchPost = (postId) => {
+  return (dispatch) => {
+    return APIUtil.fetchPost(postId).then(
+      (success) => dispatch(receivePost(success)),
+      (err) => dispatch(receiveErrors(err))
+    );
+  };
+};
+
 export const createPost = (post, tagged_id) => {
   return (dispatch) => {
     return APIUtil.createPost(post, tagged_id).then(

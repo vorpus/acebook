@@ -17,7 +17,7 @@ class Api::LikesController < ApplicationController
     @like = Like.find(params[:id])
 
     if @like.destroy
-      render json: {}
+      render json: @like
     else
       render json: @like.errors, status: 404
     end
