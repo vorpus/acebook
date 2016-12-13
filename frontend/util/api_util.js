@@ -126,5 +126,28 @@ export function deleteLike (likeId) {
   });
 }
 
+//COMMENT FUNCS
+export function addComment (postId, comment) {
+  return $.ajax({
+    method: 'POST',
+    url: `api/posts/${postId}/comments`,
+    data: { comment: comment }
+  });
+}
+
+export function getComments (postId) {
+  return $.ajax({
+    method: 'GET',
+    url: `api/posts/${postId}/comments`
+  });
+}
+
+export function deleteComment (commentId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/comments/${commentId}`
+  });
+}
+
 // user = {"firstname": "test1", "lastname": "test2", "email": "test2", "password": "123qwe", "birthday": new Date(), "gender":"male"}
 // user = {"email": "testing", "password": "123qwe"}

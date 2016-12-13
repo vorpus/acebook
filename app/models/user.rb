@@ -2,23 +2,31 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  firstname       :string           not null
-#  lastname        :string           not null
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  birthday        :date             not null
-#  gender          :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  current_town    :string
-#  home_town       :string
-#  relationship    :string
-#  workplace       :string
-#  school          :string
-#  profilepic_url  :string
-#  coverpic_url    :string
+#  id                      :integer          not null, primary key
+#  firstname               :string           not null
+#  lastname                :string           not null
+#  email                   :string           not null
+#  password_digest         :string           not null
+#  session_token           :string           not null
+#  birthday                :date             not null
+#  gender                  :string           not null
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  current_town            :string
+#  home_town               :string
+#  relationship            :string
+#  workplace               :string
+#  school                  :string
+#  profilepic_url          :string
+#  coverpic_url            :string
+#  profilepic_file_name    :string
+#  profilepic_content_type :string
+#  profilepic_file_size    :integer
+#  profilepic_updated_at   :datetime
+#  coverpic_file_name      :string
+#  coverpic_content_type   :string
+#  coverpic_file_size      :integer
+#  coverpic_updated_at     :datetime
 #
 
 class User < ActiveRecord::Base
@@ -52,6 +60,11 @@ class User < ActiveRecord::Base
     class_name: :Like,
     primary_key: :id,
     foreign_key: :user_id
+
+  has_many :comments,
+    class_name: :Comment,
+    primary_key: :id,
+    foreign_key: :author_id
 
   attr_reader :password
 

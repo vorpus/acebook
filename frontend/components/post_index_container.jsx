@@ -19,6 +19,7 @@ const mapStateToProps = (state) => {
     }
     return sortedIndicies;
   }
+  
   return {
     postKeys: sortedKeys(state.posts),
     posts: state.posts,

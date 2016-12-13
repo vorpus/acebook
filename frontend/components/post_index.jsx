@@ -2,12 +2,11 @@ import React from 'react';
 import NewPostContainer from './new_post_container';
 import { Link } from 'react-router';
 import TimeAgo from 'react-timeago';
+import PostComments from './post_comments_container';
 
 class PostIndex extends React.Component {
   constructor() {
     super();
-
-    // this.addLike = this.addLike.bind(this);
   }
 
   componentDidMount() {
@@ -16,7 +15,6 @@ class PostIndex extends React.Component {
 
   componentWillUpdate(nextProps) {
     if (this.props.profileId !== nextProps.profileId) {
-
       this.props.fetchPosts(nextProps.profileId);
     }
   }
@@ -28,7 +26,6 @@ class PostIndex extends React.Component {
     const arrow = (<strong className="tagged-user-arrow">▶</strong>)
 
     const postItems = postKeys.map(postId => {
-
       let taggedLink = () => {
         if (posts[postId].tagged) {
           return (
@@ -132,7 +129,7 @@ class PostIndex extends React.Component {
           <div className="post-content-footer">
             {postLikes()}
             <div className="post-content-comments">
-
+              <PostComments comments={posts[postId].comments} postId={postId}/>
             </div>
           </div>
         </div>

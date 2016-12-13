@@ -23,7 +23,9 @@ http://stackoverflow.com/questions/2417182/changing-created-at-for-seed-rb-data
 
 [x] need to do logged in check on user profile - logout button doesn't work properly
 
-[ ] liking needs to be fixed.
+[x] liking needs to be fixed.
+
+[ ] comments
 
 FRIEND TABLE:
 USER1 IS PERSON WHO REQUESTED

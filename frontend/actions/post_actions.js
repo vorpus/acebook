@@ -16,6 +16,7 @@ export const fetchPosts = (userId) => {
 };
 
 export const fetchPost = (postId) => {
+
   return (dispatch) => {
     return APIUtil.fetchPost(postId).then(
       (success) => dispatch(receivePost(success)),
@@ -38,15 +39,16 @@ export const createPost = (post, tagged_id) => {
 // edit post
 
 export const receivePost = (post) => {
-  return { type: RECEIVE_POST,
+  return {
+    type: RECEIVE_POST,
     post
   };
 }
 
 export const receivePosts = (posts) => ({
-  type: RECEIVE_POSTS,
-  posts
-});
+    type: RECEIVE_POSTS,
+    posts
+  });
 
 export const requestPosts = () => {
   return {

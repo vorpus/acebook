@@ -5,12 +5,12 @@ class Api::PostsController < ApplicationController
       sleep 1
       @posts = Post.where("tagged_user = ? or (tagged_user IS NULL and author_id = ?)", params[:user_id], params[:user_id])
                     .where(:author_id => Friend.active_friendships(current_user))
-      @posts.includes(:author, :tagged, :likes)
+      @posts.includes(:author, :tagged, {likes: [:user]}, {comments: [:author]})
     else
       sleep 2
       @posts = Post.order(created_at: :desc)
                     .where(:author_id => Friend.active_friendships(current_user))
-                    .includes(:author, :tagged, :likes)#.limit(10)
+                    .includes(:author, :tagged, {likes: [:user]}, {comments: [:author]})
     end
   end
 

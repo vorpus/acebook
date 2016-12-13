@@ -1,0 +1,37 @@
+.post-comment-author {
+  float: left;
+  font-weight: bold;
+  color: #36589F;
+  margin-right: 5px;
+}
+
+.post-comment-text {
+  margin-top: 5px;
+  float: left;
+  width: 425px;
+}
+
+.post-comment-body {
+}
+
+.post-comment-pic {
+  float: left;
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-right: 10px;
+}
+
+.post-comment-article {
+  margin-bottom: 15px;
+}
+
+.post-comment-addcomment-form input {
+  background: white;
+  border: 1px solid #DDDFE2;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
