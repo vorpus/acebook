@@ -92,6 +92,11 @@
   margin-top: 5px;
 }
 
+.post-image {
+  margin-top: 15px;
+  width: 100%;
+}
+
 @media only screen and (max-width: 1012px) {
   .main-body-right{
     display: none;

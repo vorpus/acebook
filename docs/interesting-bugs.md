@@ -2,6 +2,8 @@
 
 2. How to implement friend cycle using only api methods available to us - ended up with a lot of class methods on the model to locate friendship and update.
 
+3. didn't plan schema out very well, ended up having to refactor my json partials several times to account for new components
+
 TODO:
 
 [ ] how to debug for mobile?
@@ -25,7 +27,12 @@ http://stackoverflow.com/questions/2417182/changing-created-at-for-seed-rb-data
 
 [x] liking needs to be fixed.
 
-[ ] comments
+[x] comments
+
+[ ] infinite scroll
+https://github.com/amatsuda/kaminari
+
+[x] post photos
 
 FRIEND TABLE:
 USER1 IS PERSON WHO REQUESTED

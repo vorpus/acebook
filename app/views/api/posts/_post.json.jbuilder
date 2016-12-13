@@ -1,4 +1,7 @@
 json.extract! post, :id, :body, :created_at
+if post.image.original_filename
+  json.image asset_path(post.image)
+end
 json.author do
   json.partial! 'api/users/user', user: post.author
 end

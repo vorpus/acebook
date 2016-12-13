@@ -12,6 +12,7 @@
 
 .new-post-upload-photo a:hover {
   background: lightblue;
+  cursor: pointer;
 }
 .new-post-upload-photo .material-icons {
   font-size: 12px;
@@ -30,6 +31,10 @@
 
 .new-post-padded {
   padding: 15px;
+}
+
+#profile-pic-input {
+  display: none;
 }
 
 .new-post-form textarea {
@@ -67,6 +72,13 @@
   background: lightblue;
 }
 
+.new-post-attachment-name {
+  margin-top: 5px;
+  margin-left: 20px;
+  color: #999CA4;
+  font-size: 14px;
+}
+
 .new-post-form button {
   float: right;
   border: none;
@@ -76,6 +88,7 @@
   padding: 6px 17px;
   margin-top: 10px;
   margin-right: 20px;
+  margin-bottom: 14px;
 }
 
 @media only screen and (max-width: 1012px) {

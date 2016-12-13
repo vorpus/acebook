@@ -39,12 +39,12 @@ class Api::PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
+    @post = Post.find(params[:id])
 
-    if post.update(post_params)
-      render json: post
+    if @post.update(post_params)
+      render :show
     else
-      render json: post.errors.full_messages, status: 422
+      render json: @post.errors.full_messages, status: 422
     end
   end
 
@@ -60,6 +60,6 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, :image)
   end
 end

@@ -93,6 +93,18 @@ class PostIndex extends React.Component {
         }
       }
 
+      let postImage = () => {
+        if (posts[postId].image) {
+          return(
+            <img className="post-image" src={posts[postId].image} />
+          )
+        }
+      }
+
+      let selectCommentBox = (e) => {
+        $(e.target).parent().parent().siblings().find('input').focus()
+      }
+
       const style = {backgroundImage:"url("+posts[postId].author.profilepic+")"};
 
       return (
@@ -115,12 +127,13 @@ class PostIndex extends React.Component {
 
             <div className="post-content-body">
               {posts[postId].body}
+              {postImage()}
             </div>
 
             <div className="post-content-actions group">
               {likeButton()}
 
-              <div className="post-content-actions-like">
+              <div className="post-content-actions-like" onClick={selectCommentBox}>
                 <i className="material-icons">comment</i> Comment
               </div>
             </div>

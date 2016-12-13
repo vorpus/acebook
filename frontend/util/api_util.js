@@ -63,13 +63,17 @@ export function createPost (post, tagged_id) {
     return $.ajax({
       method: 'POST',
       url: `/api/users/${tagged_id}/posts`,
-      data: { post: post }
+      data: post,
+      processData: false,
+      contentType: false,
     });
   } else {
     return $.ajax({
       method: 'POST',
       url: '/api/posts',
-      data: { post: post }
+      data: post,
+      processData: false,
+      contentType: false,
     });
   }
 }
