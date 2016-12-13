@@ -12,6 +12,9 @@
   border-left: 1px solid #868589;
   border-right: 1px solid #868589;
   position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .profile-cover-info {
@@ -89,6 +92,10 @@
 }
 
 .profile-picture-form {
+  display: none;
+}
+
+.profile-cover-form {
   display: none;
 }
 

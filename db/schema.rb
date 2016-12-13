@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211202833) do
+ActiveRecord::Schema.define(version: 20161212215126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,10 @@ ActiveRecord::Schema.define(version: 20161211202833) do
     t.string   "profilepic_content_type"
     t.integer  "profilepic_file_size"
     t.datetime "profilepic_updated_at"
+    t.string   "coverpic_file_name"
+    t.string   "coverpic_content_type"
+    t.integer  "coverpic_file_size"
+    t.datetime "coverpic_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 

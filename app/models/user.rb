@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
   has_attached_file :profilepic, default_url: "missing.png"
   validates_attachment_content_type :profilepic, content_type: /\Aimage\/.*\Z/
 
+  has_attached_file :coverpic, default_url: "no-cover.png"
+  validates_attachment_content_type :coverpic, content_type: /\Aimage\/.*\Z/
+
   after_initialize :ensure_session_token
 
   has_many :posts,

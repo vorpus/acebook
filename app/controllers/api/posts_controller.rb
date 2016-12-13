@@ -3,9 +3,12 @@ class Api::PostsController < ApplicationController
     if params.has_key?(:user_id)
       # @posts = Post.where(author_id: params[:user_id])
       @posts = Post.where("tagged_user = ? or (tagged_user IS NULL and author_id = ?)", params[:user_id], params[:user_id])
+                    .where(:author_id => Friend.active_friendships(current_user))
       @posts.includes(:author, :tagged, :likes)
     else
-      @posts = Post.order(created_at: :desc).includes(:author, :tagged, :likes)
+      @posts = Post.order(created_at: :desc)
+                    .where(:author_id => Friend.active_friendships(current_user))
+                    .includes(:author, :tagged, :likes)#.limit(10)
     end
   end
 

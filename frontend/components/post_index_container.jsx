@@ -4,8 +4,24 @@ import { fetchPosts, createPost, receivePost, receivePosts } from '../actions/po
 import { addLike, removeLike } from '../actions/like_actions';
 
 const mapStateToProps = (state) => {
+
+  const sortedKeys = (posts) => {
+    let keyvals = Object.keys(posts);
+    let timestamps = [];
+    let sortedIndicies = [];
+    for (let i = 0; i < keyvals.length; i++) {
+      timestamps.push(posts[keyvals[i]].created_at);
+    }
+    let sortedTimes = timestamps.slice(0).sort().reverse();
+
+    for (let i = 0; i < sortedTimes.length; i++) {
+      sortedIndicies.push(keyvals[timestamps.indexOf(sortedTimes[i])]);
+    }
+    return sortedIndicies;
+  }
+
   return {
-    postKeys: Object.keys(state.posts).reverse(),
+    postKeys: sortedKeys(state.posts),
     posts: state.posts,
     errors: state.session.errors
   }

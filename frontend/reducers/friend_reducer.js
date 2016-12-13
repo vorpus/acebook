@@ -5,7 +5,6 @@ const FriendReducer = (state = {}, action) => {
     case RECEIVE_FRIEND:
       return action.friend;
     // case RECEIVE_FRIENDS:
-    //   debugger
     //   //RECEIVING MULTIPLE FRIENDS
     //   return null;
     default:

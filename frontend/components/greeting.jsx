@@ -37,7 +37,7 @@ class Greeting extends React.Component {
             <div className="searchbar-component">
               <div className="header-logo">♠</div>
               <form className="header-searchbar" onSubmit={this.startSearch}>
-                <input type="text" name="" value="" placeholder="Search Facebook" />
+                <input type="text" name="" value="" placeholder="Search ♠acebook" />
                 <button type="submit" name="submit"><i className="material-icons">search</i></button>
               </form>
             </div>

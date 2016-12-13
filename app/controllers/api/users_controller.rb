@@ -37,6 +37,6 @@ class Api::UsersController < ApplicationController
                   :email, :password, :birthday, :gender,
                   :current_town, :home_town, :relationship,
                   :workplace, :school,
-                  :profilepic)
+                  :profilepic, :coverpic)
   end
 end

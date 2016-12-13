@@ -15,6 +15,8 @@ class UserProfile extends React.Component {
     this.removeFriendship = this.removeFriendship.bind(this);
     this.acceptFriendship = this.acceptFriendship.bind(this);
     this.uploadNewPhoto = this.uploadNewPhoto.bind(this);
+    this.updateCoverPicButton = this.updateCoverPicButton.bind(this);
+    this.uploadCoverPhoto = this.uploadCoverPhoto.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +27,7 @@ class UserProfile extends React.Component {
   componentWillUpdate(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
       this.props.getUser(nextProps.params.id);
-      this.props.findFriend(this.props.params.id);
+      this.props.findFriend(nextProps.params.id);
     }
   }
 
@@ -95,6 +97,30 @@ class UserProfile extends React.Component {
     }
   }
 
+  updateCoverPicButton() {
+    return (
+      <div className="profile-cover-editpic" onClick={ () => {
+        $('#profile-cover-input').click()
+      }}>
+
+        <div>Upload Cover Photo</div>
+        <form className="profile-cover-form" >
+          <input id="profile-cover-input" type="file" name="" value="" onChange={this.uploadCoverPhoto}/>
+        </form>
+      </div>
+
+    )
+  }
+
+  uploadCoverPhoto(e) {
+
+    var file = e.currentTarget.files[0];
+
+    var formData = new FormData();
+    formData.append("user[coverpic]", file);
+    this.props.updateUser(formData);
+  }
+
   uploadNewPhoto(e) {
 
     var file = e.currentTarget.files[0];
@@ -118,7 +144,7 @@ class UserProfile extends React.Component {
     } else {
       if (this.props.currentUser) {
         if (this.props.params.id == this.props.currentUser.id) {
-          return(<div>Update Profile</div>)
+          return this.updateCoverPicButton();
         } else {
           return(<div onClick={this.addFriend}>Add Friend</div>);
         }
@@ -132,16 +158,18 @@ class UserProfile extends React.Component {
     const fullName = this.props.user ? `${this.props.user.firstname} ${this.props.user.lastname}` : ""
     const firstName = this.props.user ? `${this.props.user.firstname}` : ""
 
+    const userCoverPic = this.props.user ? this.props.user.coverpic : ""
+    const coverStyle = {backgroundImage:"url("+userCoverPic+")"};
     const userProfilePic = this.props.user ? this.props.user.profilepic : ""
-    const style = {backgroundImage:"url("+userProfilePic+")"};
-    // debugger
+    const profileStyle = {backgroundImage:"url("+userProfilePic+")"};
+
     return (
       <div>
       <GreetingContainer />
 
       <section className="profile-body">
         <div className="profile-topper">
-          <div className="profile-cover-photo" style={{"background":"url(http://www.placecorgi.com/850/315)"}}>
+          <div className="profile-cover-photo" style={coverStyle}>
             <div className="profile-cover-info">
               <div className="profile-cover-name">{fullName}</div>
             </div>
@@ -152,7 +180,7 @@ class UserProfile extends React.Component {
 
           <div className="profile-topper-bottom">
             <div className="profile-picture">
-              <div className="profile-picture-picture" style={style}>
+              <div className="profile-picture-picture" style={profileStyle}>
                 {this.updateProfilePicButton()}
               </div>
             </div>

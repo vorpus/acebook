@@ -22,8 +22,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(
-          () => this.redirect(),
-          () => console.log('errors')
+          () => this.redirect()
     );
   }
 
@@ -36,17 +35,15 @@ class SessionForm extends React.Component {
   }
 
   guestLogin() {
-    console.log('guest!')
-    const user = {email: 'test4', password: '123qwe'};
+    const user = {email: 'jcarver@poker.com', password: 'jason1'};
     this.props.processForm(user).then(
-          () => this.redirect(),
-          () => console.log('errors')
+          () => this.redirect()
     );
   }
 
   render() {
     const loginErrors = this.props.errors[0] ?
-      "Your login wansn't quite right... try again?" :
+      "Your login wasn't quite right... try again?" :
       null
 
     return (
