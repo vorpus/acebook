@@ -3,28 +3,29 @@
 2. How to implement friend cycle using only api methods available to us - ended up with a lot of class methods on the model to locate friendship and update.
 
 TODO:
-* how to debug for mobile?
 
-* I want to keep the elements that do nothing
+[ ] how to debug for mobile?
 
-* Should friend return friend objects or can I return the relevant users?
+[ ] I want to keep the elements that do nothing
 
-* how does user profile work? posts made by user or posts directed toward user? how to make this into query?
+[ ] Should friend return friend objects or can I return the relevant users?
 
-* add profile pic url and cover pic url to user
+[ ] how does user profile work? posts made by user or posts directed toward user? how to make this into query?
+
+[x] add profile pic url and cover pic url to user
 https://github.com/appacademy/curriculum/tree/master/full-stack-project/demos/file_upload_demo
 
-* make links on header work
+[x] make links on header work
 
-* loading bar
+[ ] loading bar
 http://cloudcannon.com/deconstructions/2014/11/15/facebook-content-placeholder-deconstruction.html
 
-* visiting profile doesn't take you to top of page
+[x] visiting profile doesn't take you to top of page
 
-* seed data custom times
+[x] seed data custom times
 http://stackoverflow.com/questions/2417182/changing-created-at-for-seed-rb-data
 
-* need to do logged in check on user profile - logout button doesn't work properly
+[x] need to do logged in check on user profile - logout button doesn't work properly
 
 FRIEND TABLE:
 USER1 IS PERSON WHO REQUESTED

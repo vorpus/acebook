@@ -4,6 +4,7 @@ import PostsReducer from './post_reducer';
 import UserReducer from './user_reducer';
 import FriendReducer from './friend_reducer';
 import LikeReducer from './like_reducer';
+import LoadingReducer from './loading_reducer';
 
 // import errorsReducer from './errors_reducer';
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   user: UserReducer,
   friendRelationship: FriendReducer,
   like: LikeReducer,
+  loading: LoadingReducer,
 });
 
 export default rootReducer;

@@ -18,9 +18,7 @@ const App = ({ children }) => (
         <li><i className="material-icons">group</i> The cool group</li>
         <li><i className="material-icons">group</i> Wedding planning</li>
         <li><i className="material-icons">group</i> fantasy football</li>
-        <li><i className="material-icons">group</i> UT Class of 2016</li>
         <li><i className="material-icons">group</i> Electrical engineering</li>
-        <li><i className="material-icons">group</i> Remy timepieces</li>
         <li><i className="material-icons">group</i> VGfashion</li>
         <li><i className="material-icons">arrow_drop_down</i> See More...</li>
       </ul>
@@ -29,9 +27,7 @@ const App = ({ children }) => (
       <ul className="main-left-explore">
         <li><i className="material-icons">group</i> Pages</li>
         <li><i className="material-icons">group</i> Groups</li>
-        <li><i className="material-icons">group</i> Insights</li>
         <li><i className="material-icons">group</i> On This Day</li>
-        <li><i className="material-icons">group</i> Manage Apps</li>
         <li><i className="material-icons">group</i> Pages Feed</li>
         <li><i className="material-icons">group</i> Photos</li>
         <li><i className="material-icons">arrow_drop_down</i> See More...</li>
@@ -44,7 +40,7 @@ const App = ({ children }) => (
     <div className="main-body-content">
       <PostIndexContainer />
     </div>
-    
+
     <div className="main-body-right-positioner">
       <div className="main-body-right">
         <div className="body-right-col">

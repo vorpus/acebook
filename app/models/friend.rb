@@ -33,8 +33,6 @@ class Friend < ActiveRecord::Base
       .flatten
       .uniq
 
-    actives.delete(user.id)
-
     actives
   end
 
