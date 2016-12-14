@@ -7,16 +7,47 @@ import PostComments from './post_comments_container';
 class PostIndex extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      page: 1
+    }
+
+    this.nextPage = this.nextPage.bind(this);
+    this._handleScroll = this._handleScroll.bind(this);
+  }
+
+  _handleScroll() {
+    let curPos = $(window).scrollTop() + $(window).height();
+    let totalHeight = $(document).height();
+    if (curPos/totalHeight === 1 && !this.props.loading) {
+        console.log('fetching');
+        this.nextPage();
+    }
   }
 
   componentDidMount() {
+    console.log('mounted');
     this.props.fetchPosts(this.props.profileId);
+    document.addEventListener("scroll", this._handleScroll)
+  }
+
+  componentWillUnmount() {
+    console.log('unmounted');
+    document.removeEventListener("scroll", this._handleScroll)
   }
 
   componentWillUpdate(nextProps) {
     if (this.props.profileId !== nextProps.profileId) {
       this.props.fetchPosts(nextProps.profileId);
     }
+  }
+
+  nextPage() {
+    let pageNum = this.state.page + 1
+    this.setState({
+      page: pageNum
+    });
+    this.props.fetchMorePosts(this.props.profileId, pageNum)
   }
 
 
@@ -180,6 +211,25 @@ class PostIndex extends React.Component {
         <div>
           <NewPostContainer profileId={this.props.profileId} />
           {postItems}
+          <div className="timeline-wrapper">
+              <div className="timeline-item">
+                  <div className="animated-background">
+                      <div className="background-masker header-top"></div>
+                      <div className="background-masker header-left"></div>
+                      <div className="background-masker header-right"></div>
+                      <div className="background-masker header-bottom"></div>
+                      <div className="background-masker subheader-left"></div>
+                      <div className="background-masker subheader-right"></div>
+                      <div className="background-masker subheader-bottom"></div>
+                      <div className="background-masker content-top"></div>
+                      <div className="background-masker content-first-end"></div>
+                      <div className="background-masker content-second-line"></div>
+                      <div className="background-masker content-second-end"></div>
+                      <div className="background-masker content-third-line"></div>
+                      <div className="background-masker content-third-end"></div>
+                  </div>
+              </div>
+          </div>
         </div>
       );
     }

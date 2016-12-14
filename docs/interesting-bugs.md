@@ -34,6 +34,8 @@ https://github.com/amatsuda/kaminari
 
 [x] post photos
 
+[ ] fix bug when creating new accounts - header doesn't link to correct profile
+
 FRIEND TABLE:
 USER1 IS PERSON WHO REQUESTED
 USER2 IS PERSON WHO NEEDS TO REQUEST

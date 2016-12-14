@@ -1,10 +1,10 @@
-# Spadebook
+# Acebook
 
-[Spadebook Live](https://spbk.herokuapp.com/)
+[Acebook Live](https://spbk.herokuapp.com/)
 
 [Trello](https://trello.com/b/IN9o7iwZ/facebook-clone)
 
-Spadebook is a 1:1 clone of Facebook. The MVP will feature user profiles, a news feed, friending, and wall posts.
+Acebook is a 1:1 clone of Facebook. The MVP will feature user profiles, a news feed, friending, and wall posts.
 
 ## Minimum Viable Product
 

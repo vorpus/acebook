@@ -44,16 +44,18 @@ export function logoutUser () {
 
 //POST FUNCS
 
-export function getPosts (userId) {
+export function getPosts (userId, page) {
   if (userId) {
     return $.ajax({
       method: 'GET',
-      url: `/api/users/${userId}/posts`
+      url: `/api/users/${userId}/posts`,
+      data: {page: page}
     });
   } else {
     return $.ajax({
       method: 'GET',
-      url: '/api/posts'
+      url: '/api/posts',
+      data: {page: page}
     });
   }
 }

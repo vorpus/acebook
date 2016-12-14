@@ -2,15 +2,26 @@ class Api::PostsController < ApplicationController
   def index
     if params.has_key?(:user_id)
       # @posts = Post.where(author_id: params[:user_id])
-      sleep 1
+      if params[:page]
+        sleep 0.5
+      else
+        sleep 1
+      end
+
       @posts = Post.where("tagged_user = ? or (tagged_user IS NULL and author_id = ?)", params[:user_id], params[:user_id])
                     .where(:author_id => Friend.active_friendships(current_user))
+                    .page(params[:page]).per(3)
       @posts.includes(:author, :tagged, {likes: [:user]}, {comments: [:author]})
     else
-      sleep 2
+      if params[:page]
+        sleep 0.5
+      else
+        sleep 2
+      end
       @posts = Post.order(created_at: :desc)
                     .where(:author_id => Friend.active_friendships(current_user))
                     .includes(:author, :tagged, {likes: [:user]}, {comments: [:author]})
+                    .page(params[:page]).per(3)
     end
   end
 
