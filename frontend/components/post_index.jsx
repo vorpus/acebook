@@ -20,19 +20,16 @@ class PostIndex extends React.Component {
     let curPos = $(window).scrollTop() + $(window).height();
     let totalHeight = $(document).height();
     if (curPos/totalHeight === 1 && !this.props.loading) {
-        console.log('fetching');
         this.nextPage();
     }
   }
 
   componentDidMount() {
-    console.log('mounted');
     this.props.fetchPosts(this.props.profileId);
     document.addEventListener("scroll", this._handleScroll)
   }
 
   componentWillUnmount() {
-    console.log('unmounted');
     document.removeEventListener("scroll", this._handleScroll)
   }
 

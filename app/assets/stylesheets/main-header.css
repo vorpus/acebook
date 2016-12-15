@@ -32,6 +32,7 @@
   color: #3b5998;
   float: left;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .header-searchbar {
@@ -69,6 +70,7 @@
 }
 
 .header-searchbar .material-icons {
+  margin-top: 2px;
   font-size: 20px;
 }
 
@@ -107,28 +109,144 @@
   float: left;
   padding-right: 10px;
   padding-left: 20px;
+  cursor: default;
 }
 
 .navigation-icons li {
   float: left;
   color: #18243d;
   margin-right:5px;
+  position: relative;
 }
 
 .navigation-icons .material-icons {
   font-size: 24px;
+  transition-duration: 0.3s;
+}
+
+.navigation-icons li:hover .navigation-dropdown {
+  display: block;
+}
+
+.navigation-icons:hover .material-icons {
+  color: #2F4779;
+}
+
+.navigation-icons:hover li:first-child .material-icons {
+  color: #18243d;
+}
+
+.navigation-icons li:first-child:hover .material-icons {
+  color: white;
+}
+
+.new-request-badge {
+  width: 0px;
+  height: 0px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid red;
+  left: 5px;
+  bottom: -6px;
+  position: absolute;
+}
+
+.navigation-dropdown {
+  display: none;
+  top: 25px;
+  right: 0px;
+  padding: 10px;
+  width: 430px;
+  background: white;
+  font-size: 14px;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+}
+
+.navigation-dropdown .hidden {
+  display: none;
+}
+
+.navigation-dropdown .requester-group {
+  margin-bottom: 10px;
+}
+
+.navigation-dropdown .requester-picture {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  float: left;
+  margin-right: 15px;
+}
+
+.navigation-dropdown .requester-name {
+  float: left;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #36589F;
+}
+
+.navigation-dropdown .requester-actions {
+  float: right;
+}
+
+.navigation-dropdown li {
+  float: none;
+  display: block;
+}
+
+.navigation-dropdown .requester-actions div {
+  padding: 5px;
+  background: #4267B2;
+  float: left;
+  margin: 2px;
+  color: white;
 }
 
 .privacy-icons {
   float: left;
   padding-left: 10px;
   border-left: 1px solid #355089;
+  position: relative;
+  transition-duration: 0.3s;
+}
+
+.privacy-icons:hover {
+  cursor: pointer;
+}
+
+.privacy-icons:hover .material-icons {
+  color: white;
+  transition-duration: 0.3s;
 }
 
 .privacy-icons li {
   float: left;
   color: #18243d;
 }
+
+.privacy-icons:hover .privacy-dropdown {
+  display: block;
+}
+
+.privacy-dropdown {
+  display: none;
+  top: 25px;
+  right: 0px;
+  padding: 10px;
+  width: 80px;
+  background: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+}
+
+
 
 
 @media only screen and (max-width: 1012px) {

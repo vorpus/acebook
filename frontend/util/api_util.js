@@ -102,6 +102,13 @@ export function findFriend(friendId) {
   });
 }
 
+export function findFriendRequests() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/friends'
+  });
+}
+
 export function removeFriend(friendshipId) {
   return $.ajax({
     method: 'DELETE',

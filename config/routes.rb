@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     resources :likes, only: [:destroy]
 
-    resources :friends, only: [:update, :destroy]
+    resources :friends, only: [:index, :update, :destroy]
 
   end
 end

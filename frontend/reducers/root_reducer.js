@@ -3,6 +3,7 @@ import SessionReducer from './session_reducer';
 import PostsReducer from './post_reducer';
 import UserReducer from './user_reducer';
 import FriendReducer from './friend_reducer';
+import FriendAddReducer from './friend_add_reducer';
 import LikeReducer from './like_reducer';
 import LoadingReducer from './loading_reducer';
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   posts: PostsReducer,
   user: UserReducer,
   friendRelationship: FriendReducer,
+  friendAdds: FriendAddReducer,
   like: LikeReducer,
   loading: LoadingReducer,
 });

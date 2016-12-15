@@ -41,49 +41,49 @@ const NewSession = ({loggedIn, errors, processLogin, processSignup, router}) => 
       <footer className="session-footer">
         <section className="footer-container">
         <nav>
-          <ul className="languages group">
+          <ul className="languages group dead">
             <li>English (US)</li>
-            <a href="#"><li>Español</li></a>
-            <a href="#"><li>Français (France)</li></a>
-            <a href="#"><li>中文(简体)</li></a>
-            <a href="#"><li>العربية</li></a>
-            <a href="#"><li>Português (Brasil)</li></a>
-            <a href="#"><li>Italiano</li></a>
-            <a href="#"><li>한국어</li></a>
-            <a href="#"><li>Deutsch</li></a>
-            <a href="#"><li>हिन्दी</li></a>
-            <a href="#"><li>日本語</li></a>
+            <a><li>Español</li></a>
+            <a><li>Français (France)</li></a>
+            <a><li>中文(简体)</li></a>
+            <a><li>العربية</li></a>
+            <a><li>Português (Brasil)</li></a>
+            <a><li>Italiano</li></a>
+            <a><li>한국어</li></a>
+            <a><li>Deutsch</li></a>
+            <a><li>हिन्दी</li></a>
+            <a><li>日本語</li></a>
           </ul>
         </nav>
 
-        <nav className="bottom-navs group">
+        <nav className="bottom-navs group dead">
           <ul>
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">Log In</a></li>
-            <li><a href="#">Messenger</a></li>
-            <li><a href="#">Facebook Lite</a></li>
-            <li><a href="#">Mobile</a></li>
-            <li><a href="#">Find Friends</a></li>
-            <li><a href="#">Badges</a></li>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">Places</a></li>
-            <li><a href="#">Games</a></li>
-            <li><a href="#">Locations</a></li>
-            <li><a href="#">Celebrities</a></li>
-            <li><a href="#">Groups</a></li>
-            <li><a href="#">Moments</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Create Ad</a></li>
-            <li><a href="#">Create Page</a></li>
-            <li><a href="#">Developers</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">Ad Choices</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a>Sign Up</a></li>
+            <li><a>Log In</a></li>
+            <li><a>Messenger</a></li>
+            <li><a>Facebook Lite</a></li>
+            <li><a>Mobile</a></li>
+            <li><a>Find Friends</a></li>
+            <li><a>Badges</a></li>
+            <li><a>People</a></li>
+            <li><a>Pages</a></li>
+            <li><a>Places</a></li>
+            <li><a>Games</a></li>
+            <li><a>Locations</a></li>
+            <li><a>Celebrities</a></li>
+            <li><a>Groups</a></li>
+            <li><a>Moments</a></li>
+            <li><a>Instagram</a></li>
+            <li><a>About</a></li>
+            <li><a>Create Ad</a></li>
+            <li><a>Create Page</a></li>
+            <li><a>Developers</a></li>
+            <li><a>Careers</a></li>
+            <li><a>Privacy</a></li>
+            <li><a>Cookies</a></li>
+            <li><a>Ad Choices</a></li>
+            <li><a>Terms</a></li>
+            <li><a>Help</a></li>
           </ul>
         </nav>
 

@@ -3,7 +3,9 @@ class Api::FriendsController < ApplicationController
     if params.has_key?(:user_id)
       render json: Friend.find_friendship(current_user.id, params[:user_id])
     else
-      render json: ["Invalid user!"], status: 404
+      @friends = Friend.where("status = 'pending' AND user2 = ?", current_user.id)
+      @friends.includes(:friender)
+      render :index
     end
   end
 

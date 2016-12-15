@@ -9,6 +9,7 @@ class UserProfile extends React.Component {
     this.state = {
       imageUrl: "",
       imageFile: null,
+      friendshipId: null,
     }
 
     this.addFriend = this.addFriend.bind(this);
@@ -59,7 +60,7 @@ class UserProfile extends React.Component {
         </ul>
       )
     } else {
-      return (<div>test</div>)
+      return (<div>Nothing to show</div>)
     }
   }
 
@@ -185,11 +186,11 @@ class UserProfile extends React.Component {
               </div>
             </div>
             <ul className="profile-navigation">
-              <li><a href="#">Timeline</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Friends</a></li>
-              <li><a href="#">Photos</a></li>
-              <li><a href="#">More</a></li>
+              <li><a>Timeline</a></li>
+              <li><a>About</a></li>
+              <li><a>Friends</a></li>
+              <li><a>Photos</a></li>
+              <li><a>More</a></li>
             </ul>
           </div>
         </div>
@@ -198,10 +199,6 @@ class UserProfile extends React.Component {
           <div className="profile-left-content">
             <strong>About {firstName}</strong>
             {this.aboutUser()}
-          </div>
-
-          <div className="profile-left-content">
-            test
           </div>
 
         </div>

@@ -1,3 +1,9 @@
+.dead:hover {
+  opacity: 0.5;
+
+  transition-duration: 0.5s;
+  cursor: not-allowed;
+}
 
 .main-body {
   width: 1012px;
@@ -22,7 +28,6 @@
 .main-body-left li {
   padding: 5px;
   border: 1px solid transparent;
-  cursor: pointer;
 }
 
 .main-body-left li:hover {
@@ -46,6 +51,23 @@
 .main-left-p {
   margin-top: 10px;
   margin-left: 5px;
+}
+
+.main-right-title {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 5px;
+  color: #36589F;
+}
+
+.body-right-col img {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.body-right-col img:hover {
+  filter: grayscale(1);
+  transition-duration: 0.2s;
 }
 
 .main-body-content {
