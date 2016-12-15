@@ -9,11 +9,14 @@ class PostIndex extends React.Component {
     super();
 
     this.state = {
-      page: 1
+      page: 1,
+      body: '',
     }
 
     this.nextPage = this.nextPage.bind(this);
     this._handleScroll = this._handleScroll.bind(this);
+    this.deletePost = this.deletePost.bind(this);
+    this.editPost = this.editPost.bind(this);
   }
 
   _handleScroll() {
@@ -31,6 +34,20 @@ class PostIndex extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener("scroll", this._handleScroll)
+  }
+
+  deletePost(id) {
+    this.props.deletePost(id).then(
+      () => {this.props.fetchPosts(this.props.profileId)}
+    )
+  }
+
+  editPost(e, id) {
+    let postBody = $(e.target).parents().eq(4).find('.post-body-edit')
+    this.setState({
+      body: postBody[0].innerHTML
+    })
+    postBody.toggleClass('edit-hidden')
   }
 
   componentWillUpdate(nextProps) {
@@ -129,11 +146,59 @@ class PostIndex extends React.Component {
         }
       }
 
+      let handleInput = (e) => {
+        this.setState({
+          body: e.currentTarget.value
+        });
+      }
+
+      let submitEdit = (e, postId) => {
+        this.props.editPost(postId, {body: this.state.body})
+        $(e.target).parents().eq(2).find('.post-body-edit').toggleClass('edit-hidden')
+      }
+
+      let postBody = () => {
+        if (store.getState().session.currentUser.id === posts[postId].author.id) {
+          return (
+            <div className="post-body-text group">
+              <div className="post-body-edit">
+                {posts[postId].body}
+              </div>
+              <div className="post-body-edit edit-hidden">
+                <textarea value={this.state.body} onChange={(e) => handleInput(e)}>
+                </textarea>
+                <div className="post-body-edit-done" onClick={(e) => submitEdit(e, postId)}>Edit</div>
+              </div>
+            </div>
+          )
+        } else {
+          return (
+            posts[postId].body
+          )
+        }
+      }
+
       let selectCommentBox = (e) => {
         $(e.target).parent().parent().siblings().find('input').focus()
       }
 
       const style = {backgroundImage:"url("+posts[postId].author.profilepic+")"};
+
+      let editDropdown = () => {
+        if (store.getState().session.currentUser.id === posts[postId].author.id) {
+          return(
+            <div className="post-dropdown">
+              <i className="material-icons">arrow_drop_down</i>
+              <div className="post-dropdown-options">
+                <ul>
+                  <li onClick={(e) => {this.editPost(e, postId)}}>Edit</li>
+                  <li onClick={() => {this.deletePost(postId)}}>Delete</li>
+                </ul>
+              </div>
+            </div>
+          );
+        }
+      }
 
       return (
 
@@ -150,11 +215,11 @@ class PostIndex extends React.Component {
                   <TimeAgo date={posts[postId].created_at} minPeriod="60" />
                 </div>
               </div>
-
+              {editDropdown()}
             </div>
 
             <div className="post-content-body">
-              {posts[postId].body}
+              {postBody()}
               {postImage()}
             </div>
 

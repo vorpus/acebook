@@ -10,10 +10,17 @@ class PostComments extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetForm = this.resetForm.bind(this);
+    this.execDeleteComment = this.execDeleteComment.bind(this);
 
     this.state = {
       body: ''
     }
+  }
+
+  execDeleteComment(key, postId) {
+    this.props.deleteComment(key).then(
+      (success) => this.props.fetchPost(postId)
+    )
   }
 
   allComments() {
@@ -23,6 +30,17 @@ class PostComments extends React.Component {
 
       return commentKeys.map((key) => {
         const picStyle = {backgroundImage:"url("+comments[key].authorpic+")"};
+
+        let deleteComment = () => {
+          if (store.getState().session.currentUser.id === comments[key].authorid) {
+            return(
+              <div className="comment-delete" onClick={() => this.execDeleteComment(key, comments[key].post_id)}>
+                <i className="material-icons">delete_forever</i>
+              </div>
+            );
+          }
+        }
+
         return (
           <div key={key} className="post-comment-article group">
             <div className="post-comment-pic" style={picStyle}></div>
@@ -32,6 +50,7 @@ class PostComments extends React.Component {
               </div>
               <div className="post-comment-body">{comments[key].body}</div>
             </div>
+            {deleteComment()}
           </div>
         );
       });

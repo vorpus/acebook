@@ -44,7 +44,23 @@ export const createPost = (post, tagged_id) => {
   };
 };
 
-// delete post
+export const deletePost = (postId) => {
+  return (dispatch) => {
+    return APIUtil.deletePost(postId).then(
+      (success) => dispatch(receivePost(success)),
+      (err) => dispatch(receiveErrors(err))
+    );
+  };
+}
+
+export const editPost = (postId, data) => {
+  return (dispatch) => {
+    return APIUtil.editPost(postId, data).then(
+      (success) => dispatch(receivePost(success)),
+      (err) => dispatch(receiveErrors(err))
+    );
+  };
+}
 
 // edit post
 

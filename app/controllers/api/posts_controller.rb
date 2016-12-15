@@ -8,6 +8,7 @@ class Api::PostsController < ApplicationController
 
       @posts = Post.where("tagged_user = ? or (tagged_user IS NULL and author_id = ?)", params[:user_id], params[:user_id])
                     .where(:author_id => Friend.active_friendships(current_user))
+                    .order("created_at DESC")
                     .page(params[:page]).per(3)
       @posts.includes(:author, :tagged, {likes: [:user]}, {comments: [:author]})
     else
@@ -17,6 +18,7 @@ class Api::PostsController < ApplicationController
       @posts = Post.order(created_at: :desc)
                     .where(:author_id => Friend.active_friendships(current_user))
                     .includes(:author, :tagged, {likes: [:user]}, {comments: [:author]})
+                    .order("created_at DESC")
                     .page(params[:page]).per(3)
     end
   end
@@ -47,7 +49,6 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
     if @post.update(post_params)
       render :show
     else
@@ -56,12 +57,12 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
+    @post = Post.find(params[:id])
 
-    if post.destroy
-      render json: ['delete successful']
+    if @post.destroy
+      render :show
     else
-      render json: post.errors.full_messages, status: 422
+      render json: @post.errors.full_messages, status: 422
     end
   end
 

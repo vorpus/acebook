@@ -87,6 +87,21 @@ export function fetchPost (postId) {
   })
 }
 
+export function deletePost (postId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/posts/${postId}`,
+  });
+}
+
+export function editPost (postId, data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/posts/${postId}`,
+    data: {post: data}
+  });
+}
+
 //FRIEND FUNCS
 export function addFriend(friendId) {
   return $.ajax({
