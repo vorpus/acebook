@@ -39,3 +39,18 @@
 .about-user .material-icons {
   font-size: 12px;
 }
+
+.about-user input {
+  width: 280px;
+  box-sizing: border-box;
+}
+
+.about-user-save {
+  float: right;
+  cursor: pointer;
+  margin-right: 15px;
+  font-size: 12px;
+  background: #4267B2;
+  color: white;
+  padding: 5px;
+}

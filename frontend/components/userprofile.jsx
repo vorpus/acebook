@@ -18,6 +18,8 @@ class UserProfile extends React.Component {
     this.uploadNewPhoto = this.uploadNewPhoto.bind(this);
     this.updateCoverPicButton = this.updateCoverPicButton.bind(this);
     this.uploadCoverPhoto = this.uploadCoverPhoto.bind(this);
+    this.submitProfileEdit = this.submitProfileEdit.bind(this);
+    this.saveEditButton = this.saveEditButton.bind(this);
   }
 
   componentDidMount() {
@@ -32,33 +34,76 @@ class UserProfile extends React.Component {
     }
   }
 
+  submitProfileEdit() {
+
+    var formData = new FormData();
+    formData.append("user[birthday]", new Date($('input[name="birthday"]').val()));
+    formData.append("user[relationship]", $('input[name="relationship"]').val());
+    formData.append("user[school]", $('input[name="school"]').val());
+    formData.append("user[workplace]", $('input[name="workplace"]').val());
+    formData.append("user[current_town]", $('input[name="current_town"]').val());
+
+    this.props.updateUser(formData);
+
+  }
+
+  saveEditButton() {
+    if (this.props.user) {
+      if (this.props.currentUser.id === this.props.user.id) {
+        return <div className="about-user-save" onClick={this.submitProfileEdit}>Save Changes</div>
+      };
+    };
+  }
+
   aboutUser() {
     let birthday, current_town, home_town, relationship, workplace, school;
+
     if (this.props.user) {
-      if (this.props.user.birthday) {
-        birthday = (<li><i className='material-icons'>card_giftcard</i> {this.props.user.birthday}</li>)
-      }
-      if (this.props.user.relationship) {
-        relationship = (<li><i className='material-icons'>favorite</i> {this.props.user.relationship}</li>)
-      }
-      if (this.props.user.school) {
-        school = (<li><i className='material-icons'>gavel</i> {this.props.user.school}</li>)
-      }
-      if (this.props.user.workplace) {
-        workplace = (<li><i className='material-icons'>work</i> {this.props.user.workplace}</li>)
-      }
-      if (this.props.user.current_town) {
-        current_town = (<li><i className='material-icons'>home</i> {this.props.user.current_town}</li>)
-      }
-      return(
-        <ul className="about-user">
+      if (this.props.currentUser.id === this.props.user.id) {
+
+        birthday = (<li><i className='material-icons'>card_giftcard</i> <input type="date" name="birthday" defaultValue={this.props.user.birthday} /></li>)
+        relationship = (<li><i className='material-icons'>favorite</i> <input type="text" name="relationship" defaultValue={this.props.user.relationship} /></li>)
+        school = (<li><i className='material-icons'>gavel</i> <input type="text" name="school" defaultValue={this.props.user.school} /></li>)
+        workplace = (<li><i className='material-icons'>work</i> <input type="text" name="workplace" defaultValue={this.props.user.workplace} /></li>)
+        current_town = (<li><i className='material-icons'>home</i> <input type="text" name="current_town" defaultValue={this.props.user.current_town} /></li>)
+
+
+        return(
+          <ul className="about-user">
           {birthday}
           {relationship}
           {school}
           {workplace}
           {current_town}
-        </ul>
-      )
+          </ul>
+        )
+      } else {
+        if (this.props.user.birthday) {
+          birthday = (<li><i className='material-icons'>card_giftcard</i> {this.props.user.birthday}</li>)
+        }
+        if (this.props.user.relationship) {
+          relationship = (<li><i className='material-icons'>favorite</i> {this.props.user.relationship}</li>)
+        }
+        if (this.props.user.school) {
+          school = (<li><i className='material-icons'>gavel</i> {this.props.user.school}</li>)
+        }
+        if (this.props.user.workplace) {
+          workplace = (<li><i className='material-icons'>work</i> {this.props.user.workplace}</li>)
+        }
+        if (this.props.user.current_town) {
+          current_town = (<li><i className='material-icons'>home</i> {this.props.user.current_town}</li>)
+        }
+        return(
+          <ul className="about-user">
+            {birthday}
+            {relationship}
+            {school}
+            {workplace}
+            {current_town}
+          </ul>
+        )
+      }
+
     } else {
       return (<div>Nothing to show</div>)
     }
@@ -197,7 +242,9 @@ class UserProfile extends React.Component {
 
         <div className="profile-left">
           <div className="profile-left-content">
+
             <strong>About {firstName}</strong>
+            {this.saveEditButton()}
             {this.aboutUser()}
           </div>
 
