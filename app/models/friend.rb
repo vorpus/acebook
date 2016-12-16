@@ -33,7 +33,7 @@ class Friend < ActiveRecord::Base
       .flatten
       .uniq
 
-    actives
+    actives | [user.id]
   end
 
   def self.pending_friendships(user)

@@ -115,7 +115,9 @@ class SignupForm extends React.Component {
                 className="namehalf"
                 placeholder="First name"
             />
-            <div className="error-popup first-name-errors">{firstnameErr}</div>
+            <div className="error-popup first-name-errors">{firstnameErr}
+              <div className="error-text">{this.props.errors["firstname"]}</div>
+            </div>
           </div>
 
           <div className="input-container lastname-container">
@@ -125,7 +127,9 @@ class SignupForm extends React.Component {
               className="namehalf"
               placeholder="Last name"
           />
-          <div className="error-popup first-name-errors">{lastnameErr}</div>
+          <div className="error-popup first-name-errors">{lastnameErr}
+            <div className="error-text">{this.props.errors["lastname"]}</div>
+          </div>
           </div>
 
           <div className="input-container">
@@ -134,7 +138,9 @@ class SignupForm extends React.Component {
               onChange={this.handleInput}
               placeholder="Mobile number or email"
           />
-          <div className="error-popup first-name-errors">{emailErr}</div>
+          <div className="error-popup first-name-errors">{emailErr}
+            <div className="error-text">{this.props.errors["email"]}</div>
+          </div>
           </div>
 
           <div className="input-container">
@@ -143,7 +149,9 @@ class SignupForm extends React.Component {
               onChange={this.handleInput}
               placeholder="Re-enter mobile number or email"
           />
-          <div className="error-popup first-name-errors">{emailErr}</div>
+          <div className="error-popup first-name-errors">{emailErr}
+            <div className="error-text">{this.props.errors["email"]}</div>
+          </div>
           </div>
 
           <div className="input-container">
@@ -152,7 +160,9 @@ class SignupForm extends React.Component {
               onChange={this.handleInput}
               placeholder="New password"
           />
-          <div className="error-popup first-name-errors">{passwordErr}</div>
+          <div className="error-popup first-name-errors">{passwordErr}
+            <div className="error-text">{this.props.errors["password"]}</div>
+          </div>
           </div>
           </div>
 
@@ -177,7 +187,9 @@ class SignupForm extends React.Component {
               <a>Why do I need to provide my birthday?</a>
             </aside>
           </div>
-          <div className="error-popup birthday-errors">{birthdayErr}</div>
+          <div className="error-popup birthday-errors">{birthdayErr}
+            <div className="error-text">{this.props.errors["birthday"]}</div>
+          </div>
           </div>
 
 
@@ -188,7 +200,9 @@ class SignupForm extends React.Component {
             <label>
             <input type="radio" name="gender" value="male"/> Male</label>
             </div>
-            <div className="error-popup gender-errors">{genderErr}</div>
+            <div className="error-popup gender-errors">{genderErr}
+              <div className="error-text">{this.props.errors["gender"]}</div>
+            </div>
           </div>
 
           <div className="confirm">

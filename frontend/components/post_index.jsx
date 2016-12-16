@@ -22,7 +22,7 @@ class PostIndex extends React.Component {
   _handleScroll() {
     let curPos = $(window).scrollTop() + $(window).height();
     let totalHeight = $(document).height();
-    if (curPos/totalHeight === 1 && !this.props.loading) {
+    if (curPos/totalHeight > 0.8 && !this.props.loading) {
         this.nextPage();
     }
   }
@@ -51,6 +51,9 @@ class PostIndex extends React.Component {
   }
 
   componentWillUpdate(nextProps) {
+    if (!store.getState().session.currentUser) {
+      this.props.router.push('/login');
+    }
     if (this.props.profileId !== nextProps.profileId) {
       this.props.fetchPosts(nextProps.profileId);
     }
@@ -69,6 +72,36 @@ class PostIndex extends React.Component {
     const {postKeys, posts} = this.props;
 
     const arrow = (<strong className="tagged-user-arrow">▶</strong>)
+
+    const loadingAnimation = (
+      <div className="timeline-wrapper">
+          <div className="timeline-item">
+              <div className="animated-background">
+                  <div className="background-masker header-top"></div>
+                  <div className="background-masker header-left"></div>
+                  <div className="background-masker header-right"></div>
+                  <div className="background-masker header-bottom"></div>
+                  <div className="background-masker subheader-left"></div>
+                  <div className="background-masker subheader-right"></div>
+                  <div className="background-masker subheader-bottom"></div>
+                  <div className="background-masker content-top"></div>
+                  <div className="background-masker content-first-end"></div>
+                  <div className="background-masker content-second-line"></div>
+                  <div className="background-masker content-second-end"></div>
+                  <div className="background-masker content-third-line"></div>
+                  <div className="background-masker content-third-end"></div>
+              </div>
+          </div>
+      </div>
+    );
+
+    const endOfPage = (
+      <div className="body-content-col">
+        <div className="post-content-post">
+          There are no more posts to show.
+        </div>
+      </div>
+    )
 
     const postItems = postKeys.map(postId => {
       let taggedLink = () => {
@@ -122,6 +155,8 @@ class PostIndex extends React.Component {
             }
           })
         }
+
+
 
         if (!liked) {
           return (
@@ -246,25 +281,7 @@ class PostIndex extends React.Component {
         <div>
           <NewPostContainer profileId={this.props.profileId} />
 
-            <div className="timeline-wrapper">
-                <div className="timeline-item">
-                    <div className="animated-background">
-                        <div className="background-masker header-top"></div>
-                        <div className="background-masker header-left"></div>
-                        <div className="background-masker header-right"></div>
-                        <div className="background-masker header-bottom"></div>
-                        <div className="background-masker subheader-left"></div>
-                        <div className="background-masker subheader-right"></div>
-                        <div className="background-masker subheader-bottom"></div>
-                        <div className="background-masker content-top"></div>
-                        <div className="background-masker content-first-end"></div>
-                        <div className="background-masker content-second-line"></div>
-                        <div className="background-masker content-second-end"></div>
-                        <div className="background-masker content-third-line"></div>
-                        <div className="background-masker content-third-end"></div>
-                    </div>
-                </div>
-            </div>
+          {loadingAnimation}
         </div>
       );
     }
@@ -273,25 +290,7 @@ class PostIndex extends React.Component {
         <div>
           <NewPostContainer profileId={this.props.profileId} />
           {postItems}
-          <div className="timeline-wrapper">
-              <div className="timeline-item">
-                  <div className="animated-background">
-                      <div className="background-masker header-top"></div>
-                      <div className="background-masker header-left"></div>
-                      <div className="background-masker header-right"></div>
-                      <div className="background-masker header-bottom"></div>
-                      <div className="background-masker subheader-left"></div>
-                      <div className="background-masker subheader-right"></div>
-                      <div className="background-masker subheader-bottom"></div>
-                      <div className="background-masker content-top"></div>
-                      <div className="background-masker content-first-end"></div>
-                      <div className="background-masker content-second-line"></div>
-                      <div className="background-masker content-second-end"></div>
-                      <div className="background-masker content-third-line"></div>
-                      <div className="background-masker content-third-end"></div>
-                  </div>
-              </div>
-          </div>
+          {endOfPage}
         </div>
       );
     }

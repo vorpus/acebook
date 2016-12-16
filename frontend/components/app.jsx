@@ -1,6 +1,7 @@
 import React from 'react';
 import GreetingContainer from './greeting_container';
 import PostIndexContainer from './post_index_container';
+import { Link } from 'react-router';
 
 
 const App = ({ children }) => (
@@ -9,33 +10,34 @@ const App = ({ children }) => (
   <section className="main-body group">
     <div className="main-body-left dead">
       <ul className="main-left-mainlinks">
-        <li><i className="material-icons">group</i> Li Zhang</li>
-        <li><i className="material-icons">group</i> News Feed</li>
-        <li><i className="material-icons">group</i> Messages</li>
+        <Link to={`/`}>
+            <li><i className="material-icons">group</i> News Feed</li>
+        </Link>
       </ul>
 
-      <strong className="main-left-title">Shortcuts</strong>
+      <strong className="main-left-title">Other projects</strong>
       <ul className="main-left-shortcuts">
-        <li><i className="material-icons">group</i> The cool group</li>
-        <li><i className="material-icons">group</i> Wedding planning</li>
-        <li><i className="material-icons">group</i> fantasy football</li>
-        <li><i className="material-icons">group</i> Electrical engineering</li>
-        <li><i className="material-icons">group</i> VGfashion</li>
-        <li><i className="material-icons">arrow_drop_down</i> See More...</li>
+        <a href="http://lizha.ng">
+          <li><i className="material-icons">accessibility</i> Portfolio</li>
+        </a>
+        <a href="https://github.com/vorpus/trees">
+          <li><i className="material-icons">call_split</i> Trees</li>
+        </a>
       </ul>
 
-      <strong className="main-left-title">Explore</strong>
+      <strong className="main-left-title">Play games</strong>
       <ul className="main-left-explore">
-        <li><i className="material-icons">group</i> Pages</li>
-        <li><i className="material-icons">group</i> Groups</li>
-        <li><i className="material-icons">group</i> On This Day</li>
-        <li><i className="material-icons">group</i> Pages Feed</li>
-        <li><i className="material-icons">group</i> Photos</li>
-        <li><i className="material-icons">arrow_drop_down</i> See More...</li>
+        <a href="https://vorpus.github.io/minesweeper/" target="_blank">
+          <li><i className="material-icons">grid_on</i> Minesweeper</li>
+        </a>
+        <a href="http://vorpus.github.io/snake_js/" target="_blank">
+          <li><i className="material-icons">timeline</i> Snake</li>
+        </a>
+        <a href="https://github.com/vorpus/W2D1/tree/master/chess/" target="_blank">
+          <li><i className="material-icons">perm_identity</i> Chess</li>
+        </a>
       </ul>
 
-      <strong className="main-left-title">Create</strong>
-        <p className="main-left-p">Ad · Page · Group · Event · Fundraiser</p>
     </div>
 
     <div className="main-body-content">
@@ -63,12 +65,12 @@ const App = ({ children }) => (
         </div>
 
         <div className="body-right-col">
-          <p>English (US) · Español · Português (Brasil) · Français (France) · Deutsch</p>
+          <p>builtWith ( React · jQuery · Ruby · Rails · AWS · CSS · HTML )</p>
         </div>
 
         <footer className="body-right-footer">
           <p>Privacy · Terms · Advertising · Ad Choices · Cookies</p>
-          <p>Facebook © 2016</p>
+          <p>♠acebook © 2017</p>
         </footer>
       </div>
     </div>

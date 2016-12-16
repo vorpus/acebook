@@ -1,5 +1,13 @@
 //USER FUNCS
 
+export function findUser (searchString) {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/users',
+    data: {search: searchString},
+  });
+}
+
 export function createUser (user) {
   return $.ajax({
     method: 'POST',

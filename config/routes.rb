@@ -4,22 +4,19 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
 
-    resources :users, only: [:create, :show, :update] do
+    resources :users, only: [:index, :create, :show, :update] do
       resources :posts, only: [:create, :index]
       resources :friends, only: [:index, :create]
     end
-
-    resource :session, only: [:create, :destroy]
 
     resources :posts, except: [:new, :edit] do
       resources :likes, only: [:index, :create]
       resources :comments, only: [:index, :create]
     end
 
+    resource :session, only: [:create, :destroy]
     resources :comments, only: [:destroy]
-
     resources :likes, only: [:destroy]
-
     resources :friends, only: [:index, :update, :destroy]
 
   end

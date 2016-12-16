@@ -5,7 +5,6 @@ class Api::PostsController < ApplicationController
       unless params[:page]
         sleep 1
       end
-
       @posts = Post.where("tagged_user = ? or (tagged_user IS NULL and author_id = ?)", params[:user_id], params[:user_id])
                     .where(:author_id => Friend.active_friendships(current_user))
                     .order("created_at DESC")

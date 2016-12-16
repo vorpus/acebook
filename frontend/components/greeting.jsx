@@ -15,6 +15,9 @@ class Greeting extends React.Component {
     this.startSearch = this.startSearch.bind(this);
     this.friendReqs = this.friendReqs.bind(this);
     this.acceptFriendship = this.acceptFriendship.bind(this);
+    this.startSearch = this.startSearch.bind(this);
+
+    this.searchResults = this.searchResults.bind(this);
   }
 
 
@@ -30,23 +33,70 @@ class Greeting extends React.Component {
     }
   }
 
+  searchResults() {
+    if (Object.keys(this.props.searchResults).length) {
+      return Object.keys(this.props.searchResults).map((id) => {
+        let style = {backgroundImage:"url("+this.props.searchResults[id].profilepic+")"};
+        return (
+          <li key={id} className="group">
+            <div className="search-result-photo" style={style}>
+            </div>
+            <Link to={`/profile/${id}`} className="search-name-link">
+              <div className="search-result-name">
+                {this.props.searchResults[id].firstname} {this.props.searchResults[id].lastname}
+              </div>
+            </Link>
+
+          </li>
+        )
+      });
+    } else {
+      return("no results");
+    }
+  }
+
+  preventEnter(e) {
+    e.preventDefault();
+  }
+
   startSearch(e) {
     e.preventDefault();
+
+    this.setState({
+      search: e.currentTarget.value
+    });
+
+    this.props.searchUser(e.currentTarget.value);
   }
 
   componentDidMount() {
     this.props.findFriendRequests();
+
+    let searchResultDisplay = $(document).find('.search-results');
+
+    $(document).find('.header-searchbar input').focus(() => {
+      searchResultDisplay.removeClass('hide-results')
+    })
+    $(document).find('.header-searchbar input').blur(() => {
+      window.setTimeout(
+        () => {searchResultDisplay.addClass('hide-results')
+      }, 500);
+    });
   }
 
   acceptFriendship(e, id) {
     this.props.acceptFriend(id).then(
       () => this.props.findFriendRequests()
+    ).then(
+      () => {this.props.fetchPosts(this.props.profileId)}
     )
   }
 
   removeFriendship(e, id) {
     this.props.removeFriend(id).then(
       () => this.props.findFriendRequests()
+    ).then(
+      () => {this.props.fetchPosts(this.props.profileId)}
     )
   }
 
@@ -65,6 +115,7 @@ class Greeting extends React.Component {
 
   friendReqs () {
     let howMany = Object.keys(this.props.pendingFriends);
+
     if (howMany.length) {
       return howMany.map((friendshipId) => {
         if (friendshipId > 0) {
@@ -106,9 +157,15 @@ class Greeting extends React.Component {
 
             <div className="searchbar-component">
               <div className="header-logo" onClick={()=>{this.props.router.push('/')}}>♠</div>
-              <form className="header-searchbar" onSubmit={this.startSearch}>
-                <input type="text" name="" value={this.state.search} placeholder="Search ♠acebook" />
-                <button type="submit" name="submit"><i className="material-icons">search</i></button>
+              <form className="header-searchbar" onSubmit={this.preventEnter}>
+                <input type="text" name="" value={this.state.search} placeholder="Search ♠acebook" onChange={this.startSearch}>
+                </input>
+                <button><i className="material-icons">search</i></button>
+                <div className="search-results hide-results">
+                  <ul>
+                  {this.searchResults()}
+                  </ul>
+                </div>
               </form>
             </div>
 
@@ -128,12 +185,6 @@ class Greeting extends React.Component {
                       {this.friendReqs()}
                     </ul>
                   </div>
-                </li>
-                <li>
-                  <i className="material-icons">question_answer</i>
-                </li>
-                <li>
-                  <i className="material-icons">public</i>
                 </li>
               </ul>
 

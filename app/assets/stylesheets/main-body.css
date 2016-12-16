@@ -1,9 +1,3 @@
-.dead:hover {
-  opacity: 0.5;
-
-  transition-duration: 0.5s;
-  cursor: not-allowed;
-}
 
 .main-body {
   width: 1012px;
@@ -45,6 +39,7 @@
 }
 
 .main-body-left .material-icons {
+  transform: translateY(15%);
   font-size: 14px;
 }
 

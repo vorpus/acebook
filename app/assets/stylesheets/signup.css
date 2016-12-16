@@ -149,7 +149,27 @@
   top: 10px;
   right: 10px;
   font-size: 12px;
-  color: red;
+  color: #be4b49;
+}
+
+.error-popup:hover {
+  cursor: pointer;
+}
+
+.error-popup:hover .error-text{
+  display: block;
+}
+
+.error-popup .error-text {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  width: 150px;
+  background: #be4b49;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .birthday-errors {

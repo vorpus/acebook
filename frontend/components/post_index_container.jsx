@@ -1,4 +1,5 @@
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import PostIndex from './post_index';
 import { fetchPost, fetchPosts, fetchMorePosts, createPost, editPost, deletePost, receivePost, receivePosts } from '../actions/post_actions';
 import { addLike, removeLike } from '../actions/like_actions';
@@ -41,7 +42,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostIndex);
+)(PostIndex));

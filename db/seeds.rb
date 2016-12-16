@@ -12,6 +12,14 @@ Post.destroy_all
 # users
 # jcarver, sam, dan, liv, oliver, vanessa, fedor, nanonoko, celina, elky, staples, negreanu,
 # rupert
+liz = User.create!(firstname:"Li", lastname:"Zhang",
+                    email:"li@poker.com", password:"li1234",
+                    birthday: Date.new(1989,12,25), gender: "male",
+                    current_town: "New York", home_town: "Oklahoma",
+                    relationship: "who knows",
+                    profilepic: File.open('app/assets/images/seed_img/jcarver.jpg'),
+                    coverpic: File.open('app/assets/images/seed_img/jcarver-cover.png')
+                    )
 
 
 jcarver = User.create!(firstname:"Jason", lastname: "Somerville",

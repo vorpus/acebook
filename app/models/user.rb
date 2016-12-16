@@ -76,6 +76,10 @@ class User < ActiveRecord::Base
     return nil
   end
 
+  def self.search(search_string)
+    User.where("LOWER(CONCAT(firstname, lastname)) LIKE LOWER('%#{search_string}%') AND ? != '' ", search_string)
+  end
+
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
