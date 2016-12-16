@@ -7,7 +7,21 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+
       log_in(@user)
+
+      if User.find_by(email: 'li@poker.com')
+        Friend.create(user1: User.find_by(email: 'li@poker.com').id, user2: current_user.id, status: "active")
+      end
+
+      if User.find_by(email: 'jaime@poker.com')
+        Friend.create(user1: User.find_by(email: 'jaime@poker.com').id, user2: current_user.id, status: "pending")
+      end
+
+      if User.find_by(email: 'randy@poker.com')
+        Friend.create(user1: User.find_by(email: 'randy@poker.com').id, user2: current_user.id, status: "pending")
+      end
+
       render :show
     else
       render json: @user.errors, status: 404

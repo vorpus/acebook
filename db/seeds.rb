@@ -15,12 +15,14 @@ Post.destroy_all
 liz = User.create!(firstname:"Li", lastname:"Zhang",
                     email:"li@poker.com", password:"li1234",
                     birthday: Date.new(1989,12,25), gender: "male",
-                    current_town: "New York", home_town: "Oklahoma",
-                    relationship: "who knows",
-                    profilepic: File.open('app/assets/images/seed_img/jcarver.jpg'),
-                    coverpic: File.open('app/assets/images/seed_img/jcarver-cover.png')
+                    relationship: "in two relationships",
+                    profilepic: File.open('app/assets/images/seed_img/li.jpg'),
+                    coverpic: File.open('app/assets/images/seed_img/li-cover.jpg')
                     )
 
+liz1 = liz.posts.create(created_at: 700.days.ago, body:"welcome to ♠acebook! social media sites are best with friends. Why not invite a few of your friends or try the demo account?",
+                      image: File.open('app/assets/images/seed_img/li-pic.jpg'))
+liz1 = liz.posts.create(created_at: 699.days.ago, body:"a couple people have already sent you friend requests!")
 
 jcarver = User.create!(firstname:"Jason", lastname: "Somerville",
                     email:"jcarver@poker.com", password:"jason1",
@@ -34,7 +36,8 @@ jcarver = User.create!(firstname:"Jason", lastname: "Somerville",
 jcp1 = jcarver.posts.create(created_at: rand(40).days.ago, body:"enjoy your holidays everyone and I look forward to another full season of dirty basement bliss on @Twitch starting early January! #peace",
                       image: File.open('app/assets/images/seed_img/jcarver-table.jpg'))
 jcp2 = jcarver.posts.create(created_at: rand(360).days.ago, body:"we are live grinding the Canadian @PokerStars streets come hang out!!")
-jcp3 = jcarver.posts.create(created_at: rand(360).days.ago, body:"huge turnout for Day 1A of our Run it Up Calgary $100K GTD NLH event @GreyEagleResort - 231 entrants w/ 4 levels left to reg! come on down!")
+jcp3 = jcarver.posts.create(created_at: rand(360).days.ago, body:"huge turnout for Day 1A of our Run it Up Calgary $100K GTD NLH event @GreyEagleResort - 231 entrants w/ 4 levels left to reg! come on down!",
+                      image: File.open('app/assets/images/seed_img/jcarver-pic.jpg'))
 jcarver.posts.create(created_at: rand(360).days.ago, body:"taking a couple weeks to chill, but looking forward to RIU Calgary and streaming from Canada again. working on some awesome things for 2017!")
 
 
@@ -54,6 +57,8 @@ jcarver.posts.create(created_at: rand(360).days.ago, tagged: sam, body:"we are r
 sam1 = sam.posts.create(created_at: rand(360).days.ago, tagged: jcarver, body:"Hello!")
 sam2 = sam.posts.create(created_at: rand(360).days.ago, body:"Selfishly trying to convince dmoongirl to adopt a potbelly pig instead of a dog.")
 sam3 = sam.posts.create(created_at: rand(20).days.ago, body:"Chips Schmips. Felt like this day was never gonna end. Happy to be home w the snuggle cub",
+                      image: File.open('app/assets/images/seed_img/sam-pic.jpg'))
+sam3 = sam.posts.create(created_at: rand(120).days.ago, body:"Meal prep! Postmates is really gonna miss Binks and Randy (the gnome) this week 🌱😼🎅🌱",
                       image: File.open('app/assets/images/seed_img/sam-post.jpg'))
 sam4 = sam.posts.create(created_at: rand(360).days.ago, body:"Mad how birds have all these bright feathers, but to attract humans all we have is a super-like option on Tinder.")
 sam.posts.create(created_at: rand(360).days.ago, body:"When u reach that point in life where happy hour is a nap")
@@ -82,6 +87,8 @@ dan3 = dan.posts.create(created_at: rand(360).days.ago, body:"Watching the elect
 dan.posts.create(created_at: rand(360).days.ago, body:"Happiness is a warm gun")
 dan4 = dan.posts.create(created_at: rand(360).days.ago, tagged: jcarver, body:"My team said to post more conservative things so we can get big money from brands",
                       image: File.open('app/assets/images/seed_img/danbilz-post.jpg'))
+dan4 = dan.posts.create(created_at: rand(360).days.ago, body:"First snowmobile trip of the year",
+                      image: File.open('app/assets/images/seed_img/dan-pic.jpg'))
 
 
 
@@ -145,6 +152,10 @@ Friend.create(user1: jcarver.id, user2: fedor.id, status: "active")
 fedor1 = fedor.posts.create(created_at: rand(360).days.ago, body:"I didn't expect how nice it feels to be home - there is always something create and beautiful to discover.")
 fedor.posts.create(created_at: rand(360).days.ago, body:"Final table in the highest online buyin ever. I'll just play and have fun ✌️")
 fedor.posts.create(created_at: rand(360).days.ago, body:"Arrived safe and sound in Barcelona. Beach > casino this time...")
+fedor.posts.create(created_at: rand(360).days.ago, body:"Ready to spin it up in this 25k PLO 🐟🐠🐬🐳🐋",
+                      image: File.open('app/assets/images/seed_img/fedor-pic.jpg'))
+fedor.posts.create(created_at: rand(360).days.ago, body:"Railing one of my longest poker friends fighting for a bracelet! 💪🎉 ",
+                      image: File.open('app/assets/images/seed_img/fedor-pic2.jpg'))
 
 
 nanonoko = User.create!(firstname:"Randy", lastname: "Lew",
@@ -227,7 +238,13 @@ negreanu = User.create!(firstname:"Daniel", lastname: "Negreanu",
                     coverpic: File.open('app/assets/images/seed_img/negrea-cover.jpg')
                     )
 #
-Friend.create(user1: jcarver.id, user2: negreanu.id, status: "active")
+Friend.create(user1: negreanu.id, user2: jcarver.id, status: "pending")
+
+negreanu.posts.create(created_at: rand(120).days.ago, body:"Which of these two poker players wore it better: me, or newcomer to the felt @justinbieber?",
+                      image: File.open('app/assets/images/seed_img/neg-pic.jpg'))
+negreanu.posts.create(created_at: rand(120).days.ago, body:"Playing Super Power Poker in Norway! You can play any of these 3 cards once during the tourney. Fun idea!",
+                      image: File.open('app/assets/images/seed_img/neg-pic2.jpg'))
+
 
 rupert = User.create!(firstname:"Rupert", lastname: "Elder",
                     email:"rupert@poker.com", password:"rupert",
@@ -239,7 +256,11 @@ rupert = User.create!(firstname:"Rupert", lastname: "Elder",
                     coverpic: File.open('app/assets/images/seed_img/rupert-cover.jpg')
                     )
 #
-Friend.create(user1: jcarver.id, user2: rupert.id, status: "active")
+Friend.create(user1: rupert.id, user2: jcarver.id, status: "pending")
+
+rupert.posts.create(created_at: rand(360).days.ago, body:"I never asked for nothin I don't demand of myself / Honesty, loyalty, friends and then wealth")
+rupert.posts.create(created_at: rand(360).days.ago, body:"For my sins I’ve been playing lots of tournament poker lately. I’ve have a varying amount of success")
+
 
 Comment.create(author: sam, post: jcp1, body: "congrats!")
 Comment.create(author: oliver, post: jcp1, body: "that's really something how'd a nitwit like you get so tasteful")

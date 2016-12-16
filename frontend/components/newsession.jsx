@@ -57,34 +57,7 @@ const NewSession = ({loggedIn, errors, processLogin, processSignup, router}) => 
         </nav>
 
         <nav className="bottom-navs group">
-          <ul>
-            <li><a>Sign Up</a></li>
-            <li><a>Log In</a></li>
-            <li><a>Messenger</a></li>
-            <li><a>Facebook Lite</a></li>
-            <li><a>Mobile</a></li>
-            <li><a>Find Friends</a></li>
-            <li><a>Badges</a></li>
-            <li><a>People</a></li>
-            <li><a>Pages</a></li>
-            <li><a>Places</a></li>
-            <li><a>Games</a></li>
-            <li><a>Locations</a></li>
-            <li><a>Celebrities</a></li>
-            <li><a>Groups</a></li>
-            <li><a>Moments</a></li>
-            <li><a>Instagram</a></li>
-            <li><a>About</a></li>
-            <li><a>Create Ad</a></li>
-            <li><a>Create Page</a></li>
-            <li><a>Developers</a></li>
-            <li><a>Careers</a></li>
-            <li><a>Privacy</a></li>
-            <li><a>Cookies</a></li>
-            <li><a>Ad Choices</a></li>
-            <li><a>Terms</a></li>
-            <li><a>Help</a></li>
-          </ul>
+          ♠acebook is a clone of Facebook built using Ruby, Rails, React, Redux, and a lot of CSS magic. If you like it, why not check out the <a href="#">source code on Github</a> or my <a>my personal site</a>? 
         </nav>
 
         <div className="copyright">♠acebook © 2016</div>
