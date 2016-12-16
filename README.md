@@ -52,18 +52,22 @@ Post.where("tagged_user = ? or (tagged_user IS NULL and author_id = ?)", params[
 
 ### Friend requests
 Users are notified of friend requests in the header pane and can accept or reject the requests without leaving the page the user is currently browsing. Friendships are maintained with a join table that includes a status column - users are not allowed to view posts belonging to users with whom they are not yet friends. Creating and searching for a A:B 'friendship' uses ActiveRecord queries to ensure the commutative relationship B:A does not already exist.
+
 ![acebook](/docs/demo-pics/friend-accept.gif)
 
 ### Real-time search
 The header searchbar listens for change events and performs searches as the user inputs their query. Searches are case-insensitive and conducted using ActiveRecord queries and regular expressions.
+
 ![acebook](/docs/demo-pics/rts.gif)
 
 ### Likes and comments
 Comments and likes can be added and removed from posts with a single keystroke/click. Comments have an 'enter/return' listener to know when to submit the form. The like and comment tables are similar on the back-end: both belong to an author and a post.
+
 ![acebook](/docs/demo-pics/like-comment.gif)
 
 ### Post editing
 Posts can be edited and removed with an action pane available to the author of the post. The frontend accomplishes this during render by comparing the post author and the session user.
+
 ![acebook](/docs/demo-pics/post-edit.gif)
 
 ### Photo upload
@@ -80,7 +84,9 @@ uploadNewPhoto(e) {
 ```
 
 ![acebook](/docs/demo-pics/post-photo-upload.gif)
+
 Attachments can be associated with both users (cover photo, profile picture) and posts (post attachment).
+
 ![acebook](/docs/demo-pics/profile-pic-update.gif)
 
 ### Responsive layout
@@ -91,6 +97,7 @@ CSS is used to make the app accessible on devices with both and small displays.
   /*  ...  */
 }
 ```
+
 ![acebook](/docs/demo-pics/responsive-size.gif)
 
 ## Future features
