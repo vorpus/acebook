@@ -168,9 +168,7 @@ class UserProfile extends React.Component {
   }
 
   uploadNewPhoto(e) {
-
     var file = e.currentTarget.files[0];
-
     var formData = new FormData();
     formData.append("user[profilepic]", file);
     this.props.updateUser(formData);
