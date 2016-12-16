@@ -29,6 +29,10 @@ Pagination is implemented with the [Kaminari](https://github.com/amatsuda/kamina
 
 ![acebook](/docs/demo-pics/infinite-scroll.gif)
 
+### Simulated latency
+An artificial delay was put on the server to simulate latency and demonstrate the loading states.
+![acebook](/docs/demo-pics/guest-login.gif)
+
 ### Real-time search
 The header searchbar listens for change events and performs searches as the user inputs their query. Searches are case-insensitive and conducted using ActiveRecord queries and regular expressions.
 ![acebook](/docs/demo-pics/rts.gif)
