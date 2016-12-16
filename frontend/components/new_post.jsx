@@ -85,12 +85,12 @@ class NewPost extends React.Component {
           <div className="new-post-padded group">
             <div className="new-post-upload-photo">
               <a onClick={ () => {
-                $('#profile-pic-input').click()
+                $('#post-pic-input').click()
               }}>
                 <i className="material-icons">add_a_photo</i>
                 Photo/Video
               </a>
-              <input id="profile-pic-input" type="file" onChange={this.uploadNewPhoto}/>
+              <input id="post-pic-input" type="file" onChange={this.uploadNewPhoto}/>
             </div>
             <div className="new-post-thumb" style={style}>
             </div>

@@ -37,6 +37,10 @@
   display: none;
 }
 
+#post-pic-input {
+  display: none;
+}
+
 .new-post-form textarea {
   margin-top: 10px;
   padding: 10px;
