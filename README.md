@@ -2,7 +2,7 @@
 
 ![acebook](/docs/demo-pics/logo.png "acebook")
 
-[LIVE](https://spbk.herokuapp.com/)
+[LIVE](https://www.theacebook.org/)
 
 [Project proposal circa 12/3/16](docs/README.md)
 
