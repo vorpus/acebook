@@ -43,21 +43,11 @@ const NewSession = ({loggedIn, errors, processLogin, processSignup, router}) => 
         <nav>
           <ul className="languages group">
             <li>English (US)</li>
-            <a><li>Español</li></a>
-            <a><li>Français (France)</li></a>
-            <a><li>中文(简体)</li></a>
-            <a><li>العربية</li></a>
-            <a><li>Português (Brasil)</li></a>
-            <a><li>Italiano</li></a>
-            <a><li>한국어</li></a>
-            <a><li>Deutsch</li></a>
-            <a><li>हिन्दी</li></a>
-            <a><li>日本語</li></a>
           </ul>
         </nav>
 
         <nav className="bottom-navs group">
-          ♠acebook is a clone of Facebook built using Ruby, Rails, React, Redux, and a lot of CSS magic. If you like it, why not check out the <a href="#">source code on Github</a> or my <a>my personal site</a>? 
+          ♠acebook is a clone of Facebook built using Ruby, Rails, React, Redux, and a lot of CSS magic. If you like it, why not check out the <a href="https://github.com/vorpus/acebook">source code on Github</a> or my <a href="http://zha.ng">my personal site</a>? 
         </nav>
 
         <div className="copyright">♠acebook © 2016</div>

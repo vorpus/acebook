@@ -50,13 +50,13 @@ const App = ({ children }) => (
 
         <div className="body-right-col">
           <strong className="main-left-title">Sponsored</strong>
-          <a href="https://github.com/vorpus/spadebook">
+          <a href="https://github.com/vorpus/acebook">
             <img src="https://s3.amazonaws.com/acebook-pro/img/drunktocat.png" target="_blank" />
             <strong className="main-right-title">Project Github</strong>
           </a>
           <p className="main-left-p">Check out the source code and documentation for this app! Also the wireframes/green squares that made Acebook possible!</p>
 
-          <a href="https://www.linkedin.com/in/lizhang">
+          <a href="https://www.linkedin.com/in/zhangio">
             <img src="https://s3.amazonaws.com/acebook-pro/img/bravo.jpeg" target="_blank" />
             <strong className="main-right-title">Linkedin</strong>
           </a>
@@ -69,7 +69,6 @@ const App = ({ children }) => (
         </div>
 
         <footer className="body-right-footer">
-          <p>Privacy · Terms · Advertising · Ad Choices · Cookies</p>
           <p>♠acebook © 2017</p>
         </footer>
       </div>

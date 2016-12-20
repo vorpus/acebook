@@ -184,7 +184,7 @@ class SignupForm extends React.Component {
               {yearPicker}
             </select>
             <aside>
-              <a>Why do I need to provide my birthday?</a>
+              We don't share this information with anyone.
             </aside>
           </div>
           <div className="error-popup birthday-errors">{birthdayErr}
@@ -206,7 +206,7 @@ class SignupForm extends React.Component {
           </div>
 
           <div className="confirm">
-            <aside>By clicking Sign Up, you agree to our <a>Terms</a> and that you have read our <a>Data Policy</a>, including our <a>Cookie Use</a>.</aside>
+            <aside>By clicking Sign Up, you agree to our Terms and that you have read our Data Policy, including our Cookie Use.</aside>
             <div className="signup-button-container">
             <a href="#">
             <input className="signup-button" type="submit" value="Sign up" />

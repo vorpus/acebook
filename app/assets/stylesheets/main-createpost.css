@@ -93,6 +93,7 @@
   margin-top: 10px;
   margin-right: 20px;
   margin-bottom: 14px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1012px) {

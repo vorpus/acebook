@@ -235,6 +235,7 @@
   float: left;
   margin: 2px;
   color: white;
+  cursor: pointer;
 }
 
 .privacy-icons {
