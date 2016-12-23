@@ -4,11 +4,8 @@
 
 [LIVE](https://www.theacebook.org/)
 
-[Project proposal circa 12/3/16](docs/README.md)
+Acebook is a clone of Facebook featuring profiles from professional poker players. The single page frontend is built using React.js/Redux; the backend is powered by Ruby on Rails sitting on a PostgreSQL database. Try it out using the 'Guest Acct' button or create a profile and join the conversation!
 
-Acebook is a clone of Facebook built using Ruby, Rails, React, Redux, and PostgreSQL.
-The purpose of this project is to solidify what we learned over the past several months at
-App Academy NYC. The clone features fake profiles from professional poker players.
 
 ![acebook](/docs/demo-pics/login.png)
 
@@ -36,7 +33,7 @@ export const fetchPosts = (userId) => {
 ![acebook](/docs/demo-pics/guest-login.gif)
 
 ### News feed & infinite scroll
-A user's news feed is curated by only displaying posts belonging to that user's friends. These posts are fetched using several chained ActiveRecord queries. An includes method is chained to the ActiveRecord relationship to reduce the total number of queries made to the server. Pagination is implemented with the [Kaminari](https://github.com/amatsuda/kaminari) gem. jQuery events are used to create infinite scroll.
+A user's news feed is curated by only displaying posts belonging to that user's friends. These posts are fetched using several chained ActiveRecord queries. An includes method is chained to the ActiveRecord relationship to prevent an inefficient N+1 query. Pagination is implemented with the [Kaminari](https://github.com/amatsuda/kaminari) gem. jQuery events are used to create infinite scroll.
 
 ```ruby
 # Ruby - app/controllers/api/posts_controller.rb
@@ -99,6 +96,7 @@ CSS is used to make the app accessible on devices with both and small displays.
 ```
 
 ![acebook](/docs/demo-pics/responsive-size.gif)
+
 
 ## Future features
 - [ ] 'Like' reactions - in addition to liking a post, users will be able to convey 'love', 'laugh', and 'sad' emotions
