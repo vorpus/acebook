@@ -17,24 +17,30 @@ const App = ({ children }) => (
 
       <strong className="main-left-title">Other projects</strong>
       <ul className="main-left-shortcuts">
-        <a href="http://lizha.ng">
+        <a href="http://lizha.ng" target="_blank">
           <li><i className="material-icons">accessibility</i> Portfolio</li>
         </a>
-        <a href="https://github.com/vorpus/trees">
+        <a href="https://vorpus.github.io/TreeJS/" target="_blank">
           <li><i className="material-icons">call_split</i> Trees</li>
         </a>
       </ul>
 
       <strong className="main-left-title">Play games</strong>
       <ul className="main-left-explore">
+        <a href="https://vorpus.github.io/PicassoJS/" target="_blank">
+          <li><i className="material-icons">bubble_chart</i> Picasso</li>
+        </a>
+        <a href="https://vorpus.github.io/theSims0/" target="_blank">
+          <li><i className="material-icons">face</i> The Sims v0</li>
+        </a>
+        <a href="https://vorpus.github.io/architect/" target="_blank">
+          <li><i className="material-icons">open_with</i> Architect</li>
+        </a>
         <a href="https://vorpus.github.io/minesweeper/" target="_blank">
           <li><i className="material-icons">grid_on</i> Minesweeper</li>
         </a>
         <a href="http://vorpus.github.io/snake_js/" target="_blank">
           <li><i className="material-icons">timeline</i> Snake</li>
-        </a>
-        <a href="https://github.com/vorpus/W2D1/tree/master/chess/" target="_blank">
-          <li><i className="material-icons">perm_identity</i> Chess</li>
         </a>
       </ul>
 
