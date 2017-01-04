@@ -140,15 +140,21 @@ class PostIndex extends React.Component {
       }
 
       let likeButton = () => {
-        if (!store.getState().session.currentUser) {
-          return (<h1>not logged in</h1>);
+
+        let currentUserId = () => {
+          if (store.getState().session.currentUser) {
+            return store.getState().session.currentUser.id;
+          } else {
+            return null;
+          }
         }
+
         let liked = false;
         let likeId, likePostId;
 
         if (posts[postId].likes) {
           Object.keys(posts[postId].likes).forEach((key)=> {
-            if (posts[postId].likes[key].userId === store.getState().session.currentUser.id) {
+            if (posts[postId].likes[key].userId === currentUserId()) {
               likeId = key;
               likePostId = postId;
               liked = true;
@@ -193,7 +199,16 @@ class PostIndex extends React.Component {
       }
 
       let postBody = () => {
-        if (store.getState().session.currentUser.id === posts[postId].author.id) {
+
+        let currentUserId = () => {
+          if (store.getState().session.currentUser) {
+            return store.getState().session.currentUser.id;
+          } else {
+            return null;
+          }
+        }
+
+        if (currentUserId() === posts[postId].author.id) {
           return (
             <div className="post-body-text group">
               <div className="post-body-edit">
@@ -220,7 +235,15 @@ class PostIndex extends React.Component {
       const style = {backgroundImage:"url("+posts[postId].author.profilepic+")"};
 
       let editDropdown = () => {
-        if (store.getState().session.currentUser.id === posts[postId].author.id) {
+        let currentUserId = () => {
+          if (store.getState().session.currentUser) {
+            return store.getState().session.currentUser.id;
+          } else {
+            return null;
+          }
+        }
+
+        if (currentUserId() === posts[postId].author.id) {
           return(
             <div className="post-dropdown">
               <i className="material-icons">arrow_drop_down</i>

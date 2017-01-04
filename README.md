@@ -11,10 +11,55 @@ Acebook is a clone of Facebook featuring profiles from professional poker player
 
 ## Features
 
-### Form validation
-The user's form inputs are validated on both the front-end and back-end. Validations check for password length, unique email addresses, and more. Passwords are hashed using [BCrypt](https://en.wikipedia.org/wiki/Bcrypt) before being stored on the server.
+### New user & logging in
+#### Validation
+Login inputs are validated on both the front-end and back-end. Client side validations check for password length, unique email addresses, and more. Passwords are hashed using [BCrypt](https://en.wikipedia.org/wiki/Bcrypt) before being stored on the server. Plaintext passwords are never stored.
 
-![acebook](/docs/demo-pics/auth-error.gif)
+Server side validation occures at both the model and the database. These redundancies are useful to ensure the integrity of data stored within the database and generally considered best practice.
+
+```ruby
+# Ruby - app/models/user.rb
+validates :firstname, :lastname, :birthday, :gender, :session_token, :password_digest, presence: true
+validates :email, presence: true, uniqueness: true
+validates :password, length: { minimum: 6 }, allow_nil: true
+
+after_initialize :ensure_session_token
+```
+
+```ruby
+# Ruby - db/schema.rb
+create_table "users", force: :cascade do |t|
+  t.string   "firstname",               null: false
+  t.string   "lastname",                null: false
+  t.string   "email",                   null: false
+  t.string   "password_digest",         null: false
+  t.string   "session_token",           null: false
+  ## ...
+
+  t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+end
+
+```
+
+#### Authentication
+A session token is stored in both the `users` table and as a cookie on the user's machine. These tokens are compared to find the active user and retrieve the relevant information. On log out, the cookie is cleared and the session token on the database is reset.
+```ruby
+# Ruby - app/controllers/application_controller.rb
+def current_user
+  @user ||= User.find_by(session_token: session[:session_token])
+end
+```
+
+On the frontend, the user's session is stored in the React-Redux `store`. If a user refreshes the single page app, a bootstrapped `currentUser` is placed on the window to keep the user logged in.
+```
+# Ruby - app/views/static_pages/root.html.erb
+<% if logged_in %>
+  window.currentUser = <%= render(
+    "api/users/user.json.jbuilder",
+    user: current_user
+  ).html_safe %>
+<% end %>
+```
 
 ### Simulated latency
 An artificial delay was put on the server to simulate latency and demonstrate the loading states.

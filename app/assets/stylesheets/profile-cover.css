@@ -52,6 +52,18 @@
   cursor: pointer;
 }
 
+.profile-cover-friend-toggle {
+  display: none;
+}
+
+.profile-cover-friend:hover .profile-cover-friend-toggle {
+  display: block;
+}
+
+.profile-cover-friend:hover .profile-cover-friend-status {
+  display: none;
+}
+
 .profile-topper-bottom {
   height: 45px;
   position: relative;

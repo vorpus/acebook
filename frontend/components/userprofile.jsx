@@ -177,12 +177,22 @@ class UserProfile extends React.Component {
   friendButton() {
     if (this.props.friendRelationship) {
       if (this.props.friendRelationship.status === "active") {
-        return(<div onClick={this.removeFriendship}>Friends</div>);
+        return(
+          <div onClick={this.removeFriendship}>
+            <div className="profile-cover-friend-status">Friends</div>
+            <div className="profile-cover-friend-toggle">Unfriend</div>
+          </div>
+        );
       } else {
         if (this.props.friendRelationship.user1 == this.props.params.id) {
           return(<div onClick={this.acceptFriendship}>Accept Friendship</div>);
         } else {
-          return(<div onClick={this.removeFriendship}>Pending...</div>);
+          return(
+            <div onClick={this.removeFriendship}>
+              <div className="profile-cover-friend-status">Pending Request</div>
+              <div className="profile-cover-friend-toggle">Cancel Request</div>
+            </div>
+          );
         }
       }
     } else {

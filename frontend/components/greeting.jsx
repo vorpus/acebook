@@ -23,6 +23,7 @@ class Greeting extends React.Component {
 
   log_out() {
     this.props.logout().then(() => this.props.router.push('/login'));
+    // this.props.logout().then(() => this.props.router.push('/login'));
   }
 
   yourname() {

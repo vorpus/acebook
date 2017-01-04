@@ -42,9 +42,15 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const loginErrors = this.props.errors[0] ?
-      "Your login wasn't quite right... try again?" :
-      null
+    // const loginErrors = this.props.errors[0] ?
+    //   "Your login wasn't quite right... try again?" :
+    //   null
+
+    const loginErrors = () => {
+      if (this.props.errors) {
+        this.props.errors[0]
+      }
+    }
 
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
