@@ -20,6 +20,7 @@ class UserProfile extends React.Component {
     this.uploadCoverPhoto = this.uploadCoverPhoto.bind(this);
     this.submitProfileEdit = this.submitProfileEdit.bind(this);
     this.saveEditButton = this.saveEditButton.bind(this);
+    this.refreshPostsAfterUpload = this.refreshPostsAfterUpload.bind(this);
   }
 
   componentDidMount() {
@@ -171,7 +172,11 @@ class UserProfile extends React.Component {
     var file = e.currentTarget.files[0];
     var formData = new FormData();
     formData.append("user[profilepic]", file);
-    this.props.updateUser(formData);
+    this.props.updateUser(formData).then(() => this.refreshPostsAfterUpload() );
+  }
+
+  refreshPostsAfterUpload() {
+    this.props.fetchPosts(this.props.params.id);
   }
 
   friendButton() {
