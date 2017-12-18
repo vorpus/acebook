@@ -2,7 +2,7 @@
 
 ![acebook](/docs/demo-pics/logo.png "acebook")
 
-[LIVE](http://www.theacebook.org/)
+[LIVE](https://spbk.herokuapp.com)
 
 Acebook is a clone of Facebook featuring profiles from professional poker players. The single page frontend is built using React.js/Redux; the backend is powered by Ruby on Rails sitting on a PostgreSQL database. Try it out using the 'Guest Acct' button or create a profile and join the conversation!
 
